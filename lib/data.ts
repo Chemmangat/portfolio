@@ -1,6 +1,6 @@
 export const personalInfo = {
   name: "HARI MANOJ",
-  title: "Software Engineer | Frontend Specialist",
+  title: "SDE-1 | Frontend Specialist",
   tagline: "Building Enterprise-Grade Web Applications That Scale & Perform Flawlessly",
   email: "chemmangathari@gmail.com",
   phone: "+91 9539299899",

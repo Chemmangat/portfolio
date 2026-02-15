@@ -6,26 +6,56 @@
   }
   
   body {
-    @apply bg-white text-gray-900;
+    @apply text-gray-100;
     scroll-behavior: smooth;
     font-feature-settings: "rlig" 1, "calt" 1;
+    background: linear-gradient(
+      180deg,
+      #0a0e27 0%,
+      #1a1f3a 15%,
+      #1e2749 30%,
+      #2d1b4e 45%,
+      #3d1f5c 60%,
+      #4a1e5d 75%,
+      #5a1e5a 90%,
+      #6b1e4f 100%
+    );
+    min-height: 100vh;
+    background-attachment: fixed;
   }
   
-  /* Minimal scrollbar */
+  /* Scrollbar */
   ::-webkit-scrollbar {
-    width: 8px;
+    width: 12px;
   }
   
   ::-webkit-scrollbar-track {
-    background: transparent;
+    @apply bg-transparent;
   }
   
   ::-webkit-scrollbar-thumb {
-    background: #d1d5db;
-    border-radius: 4px;
+    background: linear-gradient(180deg, #3b82f6, #8b5cf6, #ec4899);
+    border-radius: 10px;
   }
   
   ::-webkit-scrollbar-thumb:hover {
-    background: #9ca3af;
+    background: linear-gradient(180deg, #2563eb, #7c3aed, #db2777);
+  }
+}
+
+@layer utilities {
+  .gradient-border {
+    position: relative;
+    background: linear-gradient(rgba(17, 24, 39, 0.8), rgba(17, 24, 39, 0.8)) padding-box,
+                linear-gradient(135deg, #60a5fa, #a78bfa, #f472b6) border-box;
+    border: 2px solid transparent;
+  }
+  
+  .glass-effect {
+    @apply backdrop-blur-xl bg-white/5 border border-white/10;
+  }
+  
+  .gradient-text {
+    @apply bg-gradient-to-r from-blue-400 via-purple-400 to-pink-400 bg-clip-text text-transparent;
   }
 }

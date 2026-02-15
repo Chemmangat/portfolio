@@ -12,25 +12,25 @@ const getIcon = (title: string) => {
 
 export default function Timeline() {
   return (
-    <section className="py-16 sm:py-20 md:py-24 bg-gray-50">
-      <div className="max-w-5xl mx-auto px-4 sm:px-6">
+    <section className="py-16 sm:py-20 md:py-24 relative">
+      <div className="relative max-w-5xl mx-auto px-4 sm:px-6 lg:px-8">
         <motion.div
           initial={{ opacity: 0, y: 20 }}
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true }}
           className="text-center mb-12 sm:mb-16 md:mb-20"
         >
-          <h2 className="text-4xl sm:text-5xl md:text-6xl font-bold text-gray-900 mb-3 sm:mb-4">
+          <h2 className="text-4xl sm:text-5xl md:text-6xl lg:text-7xl font-black mb-3 sm:mb-4 bg-gradient-to-r from-pink-400 via-purple-400 to-indigo-400 bg-clip-text text-transparent px-2">
             Career Journey
           </h2>
-          <p className="text-lg sm:text-xl text-gray-600">
+          <p className="text-lg sm:text-xl text-gray-300 font-medium px-2">
             From start to leadership in record time
           </p>
         </motion.div>
 
         <div className="relative">
-          {/* Timeline line */}
-          <div className="absolute left-6 sm:left-8 md:left-1/2 top-0 bottom-0 w-0.5 bg-gray-300" />
+          {/* Timeline line with gradient */}
+          <div className="absolute left-6 sm:left-8 md:left-1/2 top-0 bottom-0 w-1 bg-gradient-to-b from-blue-500 via-purple-500 to-pink-500 rounded-full" />
 
           <div className="space-y-12 sm:space-y-16">
             {timeline.map((item, index) => {
@@ -40,50 +40,65 @@ export default function Timeline() {
               return (
                 <motion.div
                   key={index}
-                  initial={{ opacity: 0, x: isLeft ? -30 : 30 }}
+                  initial={{ opacity: 0, x: isLeft ? -50 : 50 }}
                   whileInView={{ opacity: 1, x: 0 }}
-                  viewport={{ once: true, margin: "-50px" }}
-                  transition={{ duration: 0.5 }}
+                  viewport={{ once: true, margin: "-100px" }}
+                  transition={{ duration: 0.6 }}
                   className={`relative flex items-center ${
                     isLeft ? 'md:flex-row' : 'md:flex-row-reverse'
                   } flex-col md:gap-8`}
                 >
-                  {/* Timeline dot */}
-                  <div className="absolute left-6 sm:left-8 md:left-1/2 w-12 h-12 sm:w-14 sm:h-14 md:w-16 md:h-16 -ml-6 sm:-ml-7 md:-ml-8 bg-blue-600 rounded-full flex items-center justify-center shadow-lg z-10">
-                    <Icon className="h-6 w-6 sm:h-7 sm:w-7 md:h-8 md:w-8 text-white" />
-                  </div>
+                  {/* Timeline dot with gradient */}
+                  <motion.div
+                    initial={{ scale: 0 }}
+                    whileInView={{ scale: 1 }}
+                    viewport={{ once: true }}
+                    transition={{ delay: 0.3, type: "spring", stiffness: 200 }}
+                    className="absolute left-6 sm:left-8 md:left-1/2 w-12 h-12 sm:w-14 sm:h-14 md:w-16 md:h-16 -ml-6 sm:-ml-7 md:-ml-8 z-10"
+                  >
+                    <div className="absolute inset-0 bg-gradient-to-br from-blue-500 via-purple-500 to-pink-500 rounded-full blur-lg opacity-50" />
+                    <div className="relative w-full h-full bg-gradient-to-br from-blue-600 via-purple-600 to-pink-600 rounded-full flex items-center justify-center shadow-2xl">
+                      <Icon className="h-6 w-6 sm:h-7 sm:w-7 md:h-8 md:w-8 text-white" />
+                    </div>
+                  </motion.div>
 
                   {/* Content */}
                   <div className={`w-full md:w-[calc(50%-4rem)] ${isLeft ? 'md:text-right' : 'md:text-left'} pl-20 sm:pl-24 md:pl-0`}>
-                    <div className="bg-white hover:bg-gray-50 rounded-xl sm:rounded-2xl p-6 sm:p-8 shadow-lg transition-colors border-2 border-gray-200">
-                      <div className="inline-block px-3 sm:px-4 py-1 bg-blue-600 text-white rounded-full text-xs sm:text-sm font-semibold mb-3 sm:mb-4">
-                        {item.date}
+                    <motion.div
+                      whileHover={{ scale: 1.02, y: -5 }}
+                      className="relative group"
+                    >
+                      <div className="absolute inset-0 bg-gradient-to-br from-blue-500 via-purple-500 to-pink-500 rounded-xl sm:rounded-2xl blur-xl opacity-0 group-hover:opacity-20 transition-opacity duration-500" />
+                      <div className="relative glass-effect rounded-xl sm:rounded-2xl p-6 sm:p-8 shadow-xl hover:shadow-2xl transition-all gradient-border">
+                        <div className="inline-block px-4 sm:px-5 py-1.5 sm:py-2 bg-gradient-to-r from-blue-600 to-purple-600 text-white rounded-full text-xs sm:text-sm font-black mb-3 sm:mb-4 shadow-lg">
+                          {item.date}
+                        </div>
+                        
+                        <h3 className="text-xl sm:text-2xl font-black mb-2 sm:mb-3 text-white">
+                          {item.title}
+                        </h3>
+                        
+                        <p className="text-sm sm:text-base text-gray-300 mb-3 sm:mb-4 leading-relaxed font-medium">
+                          {item.description}
+                        </p>
+                        
+                        <div className="flex flex-wrap gap-2 mb-3 sm:mb-4">
+                          {item.skills.map((skill, idx) => (
+                            <span
+                              key={idx}
+                              className="px-2 sm:px-3 py-1 sm:py-1.5 glass-effect text-gray-100 text-xs font-bold rounded-full shadow-md"
+                            >
+                              {skill}
+                            </span>
+                          ))}
+                        </div>
+                        
+                        <div className="flex items-start gap-2 text-xs sm:text-sm font-bold">
+                          <span className="text-lg sm:text-xl bg-gradient-to-r from-blue-400 to-purple-400 bg-clip-text text-transparent">→</span>
+                          <span className="text-gray-300">{item.impact}</span>
+                        </div>
                       </div>
-                      
-                      <h3 className="text-xl sm:text-2xl font-bold text-gray-900 mb-2 sm:mb-3">
-                        {item.title}
-                      </h3>
-                      
-                      <p className="text-sm sm:text-base text-gray-700 mb-3 sm:mb-4 leading-relaxed">
-                        {item.description}
-                      </p>
-                      
-                      <div className="flex flex-wrap gap-2 mb-3 sm:mb-4">
-                        {item.skills.map((skill, idx) => (
-                          <span
-                            key={idx}
-                            className="px-2 sm:px-3 py-1 bg-gray-100 text-gray-900 text-xs font-medium rounded-full"
-                          >
-                            {skill}
-                          </span>
-                        ))}
-                      </div>
-                      
-                      <div className="flex items-start gap-2 text-xs sm:text-sm text-gray-700 font-medium">
-                        <span className="text-blue-600 font-bold">→</span>
-                        <span>{item.impact}</span>
-                      </div>
-                    </div>
+                    </motion.div>
                   </div>
 
                   {/* Spacer for the other side */}
