@@ -9,12 +9,12 @@ export const personalInfo = {
 };
 
 export const metrics = [
-  { value: 8, label: "Projects", sublabel: "Delivered", icon: "📦" },
-  { value: 5, label: "B2B Solutions", sublabel: "Deployed", icon: "🏢" },
-  { value: 6, label: "Weeks", sublabel: "Fastest Build", icon: "⚡" },
-  { value: 2, label: "Global Awards", sublabel: "Team Player", icon: "🏆" },
-  { value: 8, label: "Months to", sublabel: "Promotion", icon: "🚀" },
-  { value: 1, label: "Cross-Functional", sublabel: "Team Leader", icon: "👥" },
+  { value: 8, label: "Projects", sublabel: "Delivered", icon: "ProjectOutlined" },
+  { value: 5, label: "B2B Solutions", sublabel: "Deployed", icon: "ShopOutlined" },
+  { value: 6, label: "Weeks", sublabel: "Fastest Build", icon: "ThunderboltOutlined" },
+  { value: 2, label: "Global Awards", sublabel: "Team Player", icon: "TrophyOutlined" },
+  { value: 8, label: "Months to", sublabel: "Promotion", icon: "RocketOutlined" },
+  { value: 1, label: "Cross-Functional", sublabel: "Team Leader", icon: "TeamOutlined" },
 ];
 
 export const skills = {
@@ -52,7 +52,7 @@ export const projects = [
   {
     id: 1,
     title: "Enterprise AI Chat Interface",
-    icon: "🤖",
+    icon: "RobotOutlined",
     description: "Built a sophisticated conversational AI platform with real-time document processing capabilities, enabling seamless human-AI interaction with advanced analytics",
     techStack: ["React 18", "Tailwind CSS", "Chart.js", "PDF.js", "Node.js", "Express", "WebSocket"],
     features: [
@@ -72,7 +72,7 @@ export const projects = [
   {
     id: 2,
     title: "Payment-Enabled Admin Dashboard",
-    icon: "💳",
+    icon: "CreditCardOutlined",
     description: "Full B2C platform with comprehensive user management and secure payment gateway integration, featuring real-time analytics and reporting",
     techStack: ["Next.js 14", "Tailwind CSS", "Recharts", "Stripe API", "Node.js", "PostgreSQL", "Redis"],
     features: [
@@ -92,7 +92,7 @@ export const projects = [
   {
     id: 3,
     title: "Azure-Integrated Enterprise Tool",
-    icon: "🗺️",
+    icon: "EnvironmentOutlined",
     description: "Interactive map-based dashboards with performance-optimized architecture, leveraging Azure cloud services for enterprise-grade scalability",
     techStack: ["Next.js 14", "Azure Maps SDK", "Redux Toolkit", "TypeScript", "Azure DevOps", "Azure Functions"],
     features: [
@@ -112,7 +112,7 @@ export const projects = [
   {
     id: 4,
     title: "Multi-Client B2B Platforms",
-    icon: "📊",
+    icon: "BarChartOutlined",
     description: "5+ scalable business solutions with complex data visualization, multi-tenant architecture, and advanced reporting systems for enterprise clients",
     techStack: ["Next.js 14", "Material-UI", "Redux Toolkit", "TypeScript", "Python FastAPI", "MongoDB"],
     features: [
@@ -132,7 +132,7 @@ export const projects = [
   {
     id: 5,
     title: "Backend Integration Projects",
-    icon: "⚙️",
+    icon: "ApiOutlined",
     description: "API integrations and backend services using Node.js and Python, including RESTful APIs, microservices, and third-party service integrations",
     techStack: ["Node.js", "Python", "Express.js", "FastAPI", "REST APIs", "MongoDB", "Azure"],
     features: [

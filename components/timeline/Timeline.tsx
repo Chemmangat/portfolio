@@ -2,17 +2,24 @@
 
 import { motion } from "framer-motion";
 import { timeline } from "@/lib/data";
-import { Award, TrendingUp, Sparkles } from "lucide-react";
+import { TrophyOutlined, RiseOutlined, StarOutlined } from "@ant-design/icons";
 
 const getIcon = (title: string) => {
-  if (title.includes("Award")) return Award;
-  if (title.includes("Promoted")) return TrendingUp;
-  return Sparkles;
+  if (title.includes("Award")) return TrophyOutlined;
+  if (title.includes("Promoted")) return RiseOutlined;
+  return StarOutlined;
 };
 
 export default function Timeline() {
   return (
-    <section className="py-16 sm:py-20 md:py-24 relative">
+    <section className="py-16 sm:py-20 md:py-24 relative overflow-hidden">
+      {/* Background gradient accents - immersive blue scales */}
+      <div className="absolute top-0 left-0 w-96 h-96 bg-gradient-to-br from-blue-100/50 via-indigo-100/30 to-transparent rounded-full blur-3xl pointer-events-none" />
+      <div className="absolute bottom-1/4 right-0 w-80 h-80 bg-gradient-to-l from-blue-50/60 to-transparent rounded-full blur-3xl pointer-events-none" />
+      <div className="absolute top-1/2 left-1/3 w-72 h-72 bg-gradient-to-tr from-indigo-100/40 to-transparent rounded-full blur-2xl pointer-events-none" />
+      
+      {/* Blue gradient grid pattern */}
+      <div className="absolute inset-0 bg-[linear-gradient(to_right,#3b82f608_1px,transparent_1px),linear-gradient(to_bottom,#3b82f608_1px,transparent_1px)] bg-[size:4rem_4rem] pointer-events-none" />
       <div className="relative max-w-5xl mx-auto px-4 sm:px-6 lg:px-8">
         <motion.div
           initial={{ opacity: 0, y: 20 }}
@@ -20,17 +27,17 @@ export default function Timeline() {
           viewport={{ once: true }}
           className="text-center mb-12 sm:mb-16 md:mb-20"
         >
-          <h2 className="text-4xl sm:text-5xl md:text-6xl lg:text-7xl font-black mb-3 sm:mb-4 bg-gradient-to-r from-pink-400 via-purple-400 to-indigo-400 bg-clip-text text-transparent px-2">
+          <h2 className="text-3xl sm:text-4xl md:text-5xl font-black mb-3 sm:mb-4 bg-gradient-to-r from-blue-600 to-blue-500 bg-clip-text text-transparent px-2">
             Career Journey
           </h2>
-          <p className="text-lg sm:text-xl text-gray-300 font-medium px-2">
+          <p className="text-base sm:text-lg text-slate-600 font-medium px-2">
             From start to leadership in record time
           </p>
         </motion.div>
 
         <div className="relative">
           {/* Timeline line with gradient */}
-          <div className="absolute left-6 sm:left-8 md:left-1/2 top-0 bottom-0 w-1 bg-gradient-to-b from-blue-500 via-purple-500 to-pink-500 rounded-full" />
+          <div className="absolute left-6 sm:left-8 md:left-1/2 top-0 bottom-0 w-1 bg-gradient-to-b from-blue-400 to-blue-600 rounded-full" />
 
           <div className="space-y-12 sm:space-y-16">
             {timeline.map((item, index) => {
@@ -56,9 +63,9 @@ export default function Timeline() {
                     transition={{ delay: 0.3, type: "spring", stiffness: 200 }}
                     className="absolute left-6 sm:left-8 md:left-1/2 w-12 h-12 sm:w-14 sm:h-14 md:w-16 md:h-16 -ml-6 sm:-ml-7 md:-ml-8 z-10"
                   >
-                    <div className="absolute inset-0 bg-gradient-to-br from-blue-500 via-purple-500 to-pink-500 rounded-full blur-lg opacity-50" />
-                    <div className="relative w-full h-full bg-gradient-to-br from-blue-600 via-purple-600 to-pink-600 rounded-full flex items-center justify-center shadow-2xl">
-                      <Icon className="h-6 w-6 sm:h-7 sm:w-7 md:h-8 md:w-8 text-white" />
+                    <div className="absolute inset-0 bg-gradient-to-br from-blue-400 to-blue-600 rounded-full blur-lg opacity-30" />
+                    <div className="relative w-full h-full bg-gradient-to-br from-blue-500 to-blue-600 rounded-full flex items-center justify-center shadow-xl">
+                      <Icon style={{ fontSize: '32px', color: '#ffffff' }} />
                     </div>
                   </motion.div>
 
@@ -68,17 +75,17 @@ export default function Timeline() {
                       whileHover={{ scale: 1.02, y: -5 }}
                       className="relative group"
                     >
-                      <div className="absolute inset-0 bg-gradient-to-br from-blue-500 via-purple-500 to-pink-500 rounded-xl sm:rounded-2xl blur-xl opacity-0 group-hover:opacity-20 transition-opacity duration-500" />
-                      <div className="relative glass-effect rounded-xl sm:rounded-2xl p-6 sm:p-8 shadow-xl hover:shadow-2xl transition-all gradient-border">
-                        <div className="inline-block px-4 sm:px-5 py-1.5 sm:py-2 bg-gradient-to-r from-blue-600 to-purple-600 text-white rounded-full text-xs sm:text-sm font-black mb-3 sm:mb-4 shadow-lg">
+                      <div className="absolute inset-0 bg-gradient-to-br from-blue-400 to-blue-600 rounded-xl sm:rounded-2xl blur-xl opacity-0 group-hover:opacity-15 transition-opacity duration-500" />
+                      <div className="relative glass-effect rounded-xl sm:rounded-2xl p-6 sm:p-8 shadow-lg hover:shadow-xl transition-all gradient-border">
+                        <div className="inline-block px-4 sm:px-5 py-1.5 sm:py-2 bg-gradient-to-r from-blue-600 to-blue-500 text-white rounded-full text-xs sm:text-sm font-black mb-3 sm:mb-4 shadow-lg">
                           {item.date}
                         </div>
                         
-                        <h3 className="text-xl sm:text-2xl font-black mb-2 sm:mb-3 text-white">
+                        <h3 className="text-lg sm:text-xl font-black mb-2 sm:mb-3 text-slate-800">
                           {item.title}
                         </h3>
                         
-                        <p className="text-sm sm:text-base text-gray-300 mb-3 sm:mb-4 leading-relaxed font-medium">
+                        <p className="text-sm sm:text-base text-slate-600 mb-3 sm:mb-4 leading-relaxed font-medium">
                           {item.description}
                         </p>
                         
@@ -86,7 +93,7 @@ export default function Timeline() {
                           {item.skills.map((skill, idx) => (
                             <span
                               key={idx}
-                              className="px-2 sm:px-3 py-1 sm:py-1.5 glass-effect text-gray-100 text-xs font-bold rounded-full shadow-md"
+                              className="px-2 sm:px-3 py-1 sm:py-1.5 bg-blue-50/70 text-slate-700 text-xs font-bold rounded-full shadow-sm border border-blue-200/30"
                             >
                               {skill}
                             </span>
@@ -94,8 +101,8 @@ export default function Timeline() {
                         </div>
                         
                         <div className="flex items-start gap-2 text-xs sm:text-sm font-bold">
-                          <span className="text-lg sm:text-xl bg-gradient-to-r from-blue-400 to-purple-400 bg-clip-text text-transparent">→</span>
-                          <span className="text-gray-300">{item.impact}</span>
+                          <span className="text-lg sm:text-xl bg-gradient-to-r from-blue-600 to-blue-500 bg-clip-text text-transparent">→</span>
+                          <span className="text-slate-600">{item.impact}</span>
                         </div>
                       </div>
                     </motion.div>
