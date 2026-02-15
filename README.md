@@ -1,36 +1,81 @@
-This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/app/api-reference/cli/create-next-app).
+# Hari Manoj - Portfolio
 
-## Getting Started
+A clean, accessible, and highly responsive portfolio website with smooth performance.
 
-First, run the development server:
+## ✨ Features
+
+- **Fully Responsive** - Perfect on mobile (320px+), tablet, and desktop
+- **Smooth Performance** - No lag, optimized animations
+- **High Contrast** - WCAG AA compliant colors
+- **Accessible** - Semantic HTML, keyboard navigation
+- **Clean Design** - Professional and modern
+- **Fast Loading** - Optimized bundle size
+
+## 🚀 Tech Stack
+
+- Next.js 14 (App Router)
+- TypeScript
+- Tailwind CSS
+- Framer Motion
+
+## 📦 Quick Start
 
 ```bash
+# Install dependencies
+npm install
+
+# Run development server
 npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
+
+# Build for production
+npm run build
 ```
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+## 📱 Mobile Responsive
 
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
+Fully optimized for all screen sizes:
+- **Mobile:** 320px - 767px (single column, touch-friendly)
+- **Tablet:** 768px - 1023px (2 columns)
+- **Desktop:** 1024px+ (full layout)
 
-This project uses [`next/font`](https://nextjs.org/docs/app/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.
+All text, buttons, and spacing scale appropriately.
 
-## Learn More
+## 🎨 Design Features
 
-To learn more about Next.js, take a look at the following resources:
+- High contrast colors (gray-900 on white)
+- Clear visual hierarchy
+- Smooth scroll animations
+- Touch-friendly buttons (min 44px)
+- Readable font sizes on all devices
+- Proper spacing and padding
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
+## 🎯 Customization
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js) - your feedback and contributions are welcome!
+Edit `lib/data.ts` to update:
+- Personal information
+- Metrics
+- Skills
+- Projects
+- Timeline
+- Contact details
 
-## Deploy on Vercel
+Add your resume as `public/resume.pdf`
 
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
+## 🚀 Deploy
 
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying) for more details.
+```bash
+vercel
+```
+
+## ✅ Accessibility
+
+- Semantic HTML elements
+- Proper heading hierarchy
+- High contrast ratios
+- Touch target sizes (44px minimum)
+- Keyboard navigation support
+- Screen reader friendly
+
+## License
+
+MIT
