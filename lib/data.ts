@@ -134,12 +134,12 @@ export const projects = [
     title: "Backend Integration Projects",
     icon: "⚙️",
     description: "API integrations and backend services using Node.js and Python, including RESTful APIs, microservices, and third-party service integrations",
-    techStack: ["Node.js", "Python", "Express.js", "FastAPI", "REST APIs", "GraphQL", "Docker"],
+    techStack: ["Node.js", "Python", "Express.js", "FastAPI", "REST APIs", "MongoDB", "Azure"],
     features: [
-      "RESTful API development and integration",
-      "Third-party service connections (Stripe, SendGrid, AWS S3)",
-      "Data processing scripts and automation",
-      "Microservices architecture with Docker containers",
+      "RESTful API development and integration with Node.js",
+      "Third-party service connections (Stripe, SendGrid, Azure Storage)",
+      "Data processing and automation with MongoDB",
+      "Microservices architecture with Azure cloud services",
     ],
     impact: [
       "Requirement-based backend work",
