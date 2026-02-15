@@ -5,6 +5,10 @@
     @apply antialiased;
   }
   
+  html {
+    overflow-x: hidden;
+  }
+  
   body {
     @apply text-gray-100;
     scroll-behavior: smooth;
@@ -22,6 +26,7 @@
     );
     min-height: 100vh;
     background-attachment: fixed;
+    overflow-x: hidden;
   }
   
   /* Scrollbar */
