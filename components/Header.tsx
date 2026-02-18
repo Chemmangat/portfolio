@@ -10,6 +10,7 @@ export default function Header() {
   const packages = [
     { name: "easy-scroll", url: "https://easyscroll.chemmangathari.in" },
     { name: "optimistic-update", url: "https://optimisticupdate.chemmangathari.in" },
+    { name: "msal", url: "https://msal.chemmangathari.in" },
   ];
 
   return (

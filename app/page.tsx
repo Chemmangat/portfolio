@@ -6,6 +6,7 @@ import Timeline from "@/components/timeline/Timeline";
 import ContactSection from "@/components/contact/ContactSection";
 import ParticleBackground from "@/components/ParticleBackground";
 import Header from "@/components/Header";
+import PackagesSection from "@/components/packages/PackagesSection";
 
 export default function Home() {
   return (
@@ -15,6 +16,7 @@ export default function Home() {
       <div className="relative" style={{ zIndex: 10 }}>
         <HeroSection />
         <MetricsCounter />
+        <PackagesSection />
         <ProjectsSection />
         <SkillsSection />
         <Timeline />
