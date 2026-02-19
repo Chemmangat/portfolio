@@ -93,17 +93,17 @@ export default function PackagesSection() {
                   style={{ transformStyle: 'preserve-3d' }}
                 >
                   {/* Shadow layer for 3D depth */}
-                  <div className="absolute inset-0 bg-slate-900/20 rounded-xl blur-xl translate-y-4 group-hover:translate-y-6 transition-transform duration-200" />
+                  <div className="absolute inset-0 bg-slate-900/20 rounded-xl blur-xl translate-y-4 group-hover:translate-y-6 transition-transform duration-200 pointer-events-none" />
                   
                   {/* Main card */}
-                  <div className="relative h-full bg-white rounded-xl border-2 border-gray-300 group-hover:border-gray-900 shadow-lg group-hover:shadow-2xl transition-all duration-150 overflow-hidden flex flex-col">
+                  <div className="relative h-full bg-white rounded-xl border-2 border-gray-300 group-hover:border-gray-900 shadow-lg group-hover:shadow-2xl transition-all duration-150 overflow-hidden flex flex-col z-10">
                     {/* Gradient header with 3D effect */}
                     <div className={`h-1 bg-gradient-to-r ${pkg.gradient} group-hover:h-2 transition-all duration-150`} />
                     
                     {/* Shine effect on hover */}
-                    <div className="absolute inset-0 opacity-0 group-hover:opacity-100 transition-opacity duration-300 pointer-events-none bg-gradient-to-br from-white/40 via-transparent to-transparent" />
+                    <div className="absolute inset-0 opacity-0 group-hover:opacity-100 transition-opacity duration-300 pointer-events-none bg-gradient-to-br from-white/40 via-transparent to-transparent z-20" />
                     
-                    <div className="relative p-6 sm:p-8 flex flex-col flex-1">
+                    <div className="relative p-6 sm:p-8 flex flex-col flex-1 z-10">
                       {/* Icon with 3D pop */}
                       <div className="mb-6">
                         <div className={`inline-flex p-3 rounded-lg bg-gradient-to-br ${pkg.gradient} shadow-lg group-hover:shadow-xl group-hover:translate-z-10 transition-all duration-150`}>
@@ -144,12 +144,12 @@ export default function PackagesSection() {
                       </div>
 
                       {/* Links with 3D press effect */}
-                      <div className="flex gap-3 mt-auto font-mono text-xs">
+                      <div className="flex gap-3 mt-auto font-mono text-xs relative z-30">
                         <a
                           href={pkg.npmUrl}
                           target="_blank"
                           rel="noopener noreferrer"
-                          className="flex-1 px-4 py-2 bg-slate-900 hover:bg-slate-800 text-white font-semibold rounded transition-all duration-150 text-center hover:translate-y-[-2px] hover:shadow-lg active:translate-y-0"
+                          className="flex-1 px-4 py-2 bg-slate-900 hover:bg-slate-800 text-white font-semibold rounded transition-all duration-150 text-center hover:translate-y-[-2px] hover:shadow-lg active:translate-y-0 cursor-pointer"
                         >
                           npm install
                         </a>
@@ -157,7 +157,7 @@ export default function PackagesSection() {
                           href={pkg.demoUrl}
                           target="_blank"
                           rel="noopener noreferrer"
-                          className={`flex-1 px-4 py-2 bg-gradient-to-r ${pkg.gradient} hover:opacity-90 text-white font-semibold rounded transition-all duration-150 text-center hover:translate-y-[-2px] hover:shadow-lg active:translate-y-0`}
+                          className={`flex-1 px-4 py-2 bg-gradient-to-r ${pkg.gradient} hover:opacity-90 text-white font-semibold rounded transition-all duration-150 text-center hover:translate-y-[-2px] hover:shadow-lg active:translate-y-0 cursor-pointer`}
                         >
                           demo →
                         </a>
