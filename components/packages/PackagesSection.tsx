@@ -15,7 +15,7 @@ const packages = [
     demoUrl: "https://easyscroll.chemmangathari.in",
     gradient: "from-amber-500 to-orange-500",
     features: ["Zero Dependencies", "Native CSS API", "TypeScript Support"],
-    downloads: "79"
+    downloads: "371"
   },
   {
     name: "optimistic-update",
@@ -28,7 +28,7 @@ const packages = [
     demoUrl: "https://optimisticupdate.chemmangathari.in",
     gradient: "from-blue-500 to-indigo-500",
     features: ["Instant Feedback", "Auto Rollback", "React Hooks"],
-    downloads: null
+    downloads: "94"
   },
   {
     name: "msal-next",
@@ -41,7 +41,7 @@ const packages = [
     demoUrl: "https://msal.chemmangathari.in",
     gradient: "from-emerald-500 to-teal-500",
     features: ["Next.js Optimized", "Type Safe", "Easy Setup"],
-    downloads: null
+    downloads: "335"
   }
 ];
 
