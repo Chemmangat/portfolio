@@ -53,14 +53,15 @@ function Counter({ end, duration = 2 }: { end: number; duration?: number }) {
 
 export default function MetricsCounter() {
   return (
-    <section className="py-16 md:py-20 relative bg-gradient-to-b from-gray-50 to-white overflow-hidden">
-      {/* Background gradient accents - immersive blue scales */}
-      <div className="absolute top-0 left-1/4 w-72 h-72 bg-gradient-to-br from-blue-100/50 to-transparent rounded-full blur-3xl pointer-events-none" />
-      <div className="absolute top-1/3 right-0 w-80 h-80 bg-gradient-to-l from-indigo-100/60 to-transparent rounded-full blur-3xl pointer-events-none" />
-      <div className="absolute bottom-1/4 left-0 w-64 h-64 bg-gradient-to-r from-blue-50/40 to-transparent rounded-full blur-2xl pointer-events-none" />
+    <section className="py-16 md:py-20 relative bg-amber-50 overflow-hidden border-y-4 border-amber-200">
+      {/* Paper texture effect */}
+      <div className="absolute inset-0 opacity-30" style={{
+        backgroundImage: `url("data:image/svg+xml,%3Csvg width='60' height='60' viewBox='0 0 60 60' xmlns='http://www.w3.org/2000/svg'%3E%3Cg fill='none' fill-rule='evenodd'%3E%3Cg fill='%23d97706' fill-opacity='0.1'%3E%3Cpath d='M36 34v-4h-2v4h-4v2h4v4h2v-4h4v-2h-4zm0-30V0h-2v4h-4v2h4v4h2V6h4V4h-4zM6 34v-4H4v4H0v2h4v4h2v-4h4v-2H6zM6 4V0H4v4H0v2h4v4h2V6h4V4H6z'/%3E%3C/g%3E%3C/g%3E%3C/svg%3E")`
+      }} />
       
-      {/* Blue gradient grid pattern */}
-      <div className="absolute inset-0 bg-[linear-gradient(to_right,#3b82f608_1px,transparent_1px),linear-gradient(to_bottom,#3b82f608_1px,transparent_1px)] bg-[size:4rem_4rem] pointer-events-none" />
+      {/* Stamp-like decorations */}
+      <div className="absolute top-4 right-4 w-24 h-24 border-4 border-dashed border-amber-300 rounded-full opacity-40" />
+      <div className="absolute bottom-4 left-4 w-32 h-32 border-4 border-dashed border-amber-300 rounded-full opacity-40" />
       
       <div className="relative max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
         <motion.div
@@ -69,11 +70,11 @@ export default function MetricsCounter() {
           viewport={{ once: true }}
           className="text-center mb-12"
         >
-          <h2 className="text-3xl sm:text-4xl md:text-5xl font-black mb-3 bg-gradient-to-r from-slate-900 to-slate-700 bg-clip-text text-transparent">
-            Impact in Numbers
+          <h2 className="text-3xl sm:text-4xl md:text-5xl font-black mb-3 text-amber-900">
+            Key Metrics
           </h2>
-          <p className="text-base text-slate-600 font-medium">
-            Proven track record of excellence
+          <p className="text-base text-amber-800 font-medium">
+            Quantifiable achievements and project outcomes
           </p>
         </motion.div>
 
@@ -89,17 +90,16 @@ export default function MetricsCounter() {
                 transition={{ duration: 0.4, delay: index * 0.08 }}
                 className="relative group"
               >
-                <div className="relative text-center p-5 premium-card rounded-xl hover:-translate-y-1 transition-all duration-300">
-                  <div className="absolute inset-0 bg-gradient-to-br from-blue-50/50 to-indigo-50/50 rounded-xl opacity-0 group-hover:opacity-100 transition-opacity" />
+                <div className="relative text-center p-5 bg-white border-2 border-amber-300 rounded-lg shadow-[4px_4px_0px_0px_rgba(217,119,6,0.3)] hover:shadow-[6px_6px_0px_0px_rgba(217,119,6,0.4)] hover:-translate-y-1 hover:-translate-x-1 transition-all duration-300">
                   <div className="relative">
                     <div className="text-2xl mb-2">
-                      {IconComponent && <IconComponent style={{ fontSize: '32px', color: '#2563eb' }} />}
+                      {IconComponent && <IconComponent style={{ fontSize: '32px', color: '#d97706' }} />}
                     </div>
-                    <div className="text-3xl font-black mb-1.5 bg-gradient-to-r from-blue-600 to-blue-500 bg-clip-text text-transparent">
+                    <div className="text-3xl font-black mb-1.5 text-amber-900">
                       <Counter end={metric.value} />+
                     </div>
-                    <div className="text-xs font-bold text-slate-900 mb-0.5">{metric.label}</div>
-                    <div className="text-xs text-slate-600 font-medium">{metric.sublabel}</div>
+                    <div className="text-xs font-bold text-amber-900 mb-0.5">{metric.label}</div>
+                    <div className="text-xs text-amber-700 font-medium">{metric.sublabel}</div>
                   </div>
                 </div>
               </motion.div>

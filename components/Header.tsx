@@ -20,7 +20,7 @@ export default function Header() {
       transition={{ duration: 0.6, ease: [0.22, 1, 0.36, 1] }}
       className="fixed top-0 left-0 right-0 z-50"
     >
-      <div className="absolute inset-0 bg-white/70 backdrop-blur-xl border-b border-gray-200/50 shadow-lg shadow-black/5" />
+      <div className="absolute inset-0 backdrop-blur-md border-b border-white/10" />
       
       <div className="relative max-w-7xl mx-auto px-4 sm:px-6 lg:px-12">
         <div className="flex justify-between items-center h-16 sm:h-20">

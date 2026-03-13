@@ -12,14 +12,20 @@ const getIcon = (title: string) => {
 
 export default function Timeline() {
   return (
-    <section className="py-16 sm:py-20 md:py-24 relative overflow-hidden">
-      {/* Background gradient accents - immersive blue scales */}
-      <div className="absolute top-0 left-0 w-96 h-96 bg-gradient-to-br from-blue-100/50 via-indigo-100/30 to-transparent rounded-full blur-3xl pointer-events-none" />
-      <div className="absolute bottom-1/4 right-0 w-80 h-80 bg-gradient-to-l from-blue-50/60 to-transparent rounded-full blur-3xl pointer-events-none" />
-      <div className="absolute top-1/2 left-1/3 w-72 h-72 bg-gradient-to-tr from-indigo-100/40 to-transparent rounded-full blur-2xl pointer-events-none" />
+    <section className="py-16 sm:py-20 md:py-24 relative overflow-hidden bg-gradient-to-b from-emerald-50 to-teal-50">
+      {/* Wavy lines background */}
+      <svg className="absolute inset-0 w-full h-full opacity-20" xmlns="http://www.w3.org/2000/svg">
+        <defs>
+          <linearGradient id="wave-gradient" x1="0%" y1="0%" x2="100%" y2="0%">
+            <stop offset="0%" stopColor="#10b981" />
+            <stop offset="100%" stopColor="#14b8a6" />
+          </linearGradient>
+        </defs>
+        <path d="M0,100 Q250,50 500,100 T1000,100 T1500,100 T2000,100" stroke="url(#wave-gradient)" strokeWidth="2" fill="none" />
+        <path d="M0,200 Q250,150 500,200 T1000,200 T1500,200 T2000,200" stroke="url(#wave-gradient)" strokeWidth="2" fill="none" opacity="0.5" />
+        <path d="M0,300 Q250,250 500,300 T1000,300 T1500,300 T2000,300" stroke="url(#wave-gradient)" strokeWidth="2" fill="none" opacity="0.3" />
+      </svg>
       
-      {/* Blue gradient grid pattern */}
-      <div className="absolute inset-0 bg-[linear-gradient(to_right,#3b82f608_1px,transparent_1px),linear-gradient(to_bottom,#3b82f608_1px,transparent_1px)] bg-[size:4rem_4rem] pointer-events-none" />
       <div className="relative max-w-5xl mx-auto px-4 sm:px-6 lg:px-8">
         <motion.div
           initial={{ opacity: 0, y: 20 }}
@@ -27,17 +33,17 @@ export default function Timeline() {
           viewport={{ once: true }}
           className="text-center mb-12 sm:mb-16 md:mb-20"
         >
-          <h2 className="text-3xl sm:text-4xl md:text-5xl font-black mb-3 sm:mb-4 bg-gradient-to-r from-blue-600 to-blue-500 bg-clip-text text-transparent px-2">
-            Career Journey
+          <h2 className="text-3xl sm:text-4xl md:text-5xl font-black mb-3 sm:mb-4 text-emerald-900 px-2">
+            Professional Timeline
           </h2>
-          <p className="text-base sm:text-lg text-slate-600 font-medium px-2">
-            From start to leadership in record time
+          <p className="text-base sm:text-lg text-emerald-800 font-medium px-2">
+            Career progression and key milestones
           </p>
         </motion.div>
 
         <div className="relative">
-          {/* Timeline line with gradient */}
-          <div className="absolute left-6 sm:left-8 md:left-1/2 top-0 bottom-0 w-1 bg-gradient-to-b from-blue-400 to-blue-600 rounded-full" />
+          {/* Timeline line - organic wavy style */}
+          <div className="absolute left-6 sm:left-8 md:left-1/2 top-0 bottom-0 w-1 bg-gradient-to-b from-emerald-400 via-teal-400 to-emerald-600 rounded-full" />
 
           <div className="space-y-12 sm:space-y-16">
             {timeline.map((item, index) => {
@@ -55,7 +61,7 @@ export default function Timeline() {
                     isLeft ? 'md:flex-row' : 'md:flex-row-reverse'
                   } flex-col md:gap-8`}
                 >
-                  {/* Timeline dot with gradient */}
+                  {/* Timeline dot - playful style */}
                   <motion.div
                     initial={{ scale: 0 }}
                     whileInView={{ scale: 1 }}
@@ -63,29 +69,27 @@ export default function Timeline() {
                     transition={{ delay: 0.3, type: "spring", stiffness: 200 }}
                     className="absolute left-6 sm:left-8 md:left-1/2 w-12 h-12 sm:w-14 sm:h-14 md:w-16 md:h-16 -ml-6 sm:-ml-7 md:-ml-8 z-10"
                   >
-                    <div className="absolute inset-0 bg-gradient-to-br from-blue-400 to-blue-600 rounded-full blur-lg opacity-30" />
-                    <div className="relative w-full h-full bg-gradient-to-br from-blue-500 to-blue-600 rounded-full flex items-center justify-center shadow-xl">
-                      <Icon style={{ fontSize: '32px', color: '#ffffff' }} />
+                    <div className="relative w-full h-full bg-gradient-to-br from-emerald-400 to-teal-500 rounded-full flex items-center justify-center shadow-xl border-4 border-white rotate-12">
+                      <Icon style={{ fontSize: '28px', color: '#ffffff' }} />
                     </div>
                   </motion.div>
 
                   {/* Content */}
                   <div className={`w-full md:w-[calc(50%-4rem)] ${isLeft ? 'md:text-right' : 'md:text-left'} pl-20 sm:pl-24 md:pl-0`}>
                     <motion.div
-                      whileHover={{ scale: 1.02, y: -5 }}
+                      whileHover={{ scale: 1.02, rotate: isLeft ? -1 : 1 }}
                       className="relative group"
                     >
-                      <div className="absolute inset-0 bg-gradient-to-br from-blue-400 to-blue-600 rounded-xl sm:rounded-2xl blur-xl opacity-0 group-hover:opacity-15 transition-opacity duration-500" />
-                      <div className="relative glass-effect rounded-xl sm:rounded-2xl p-6 sm:p-8 shadow-lg hover:shadow-xl transition-all gradient-border">
-                        <div className="inline-block px-4 sm:px-5 py-1.5 sm:py-2 bg-gradient-to-r from-blue-600 to-blue-500 text-white rounded-full text-xs sm:text-sm font-black mb-3 sm:mb-4 shadow-lg">
+                      <div className="relative bg-white border-3 border-emerald-300 rounded-2xl p-6 sm:p-8 shadow-[6px_6px_0px_0px_rgba(16,185,129,0.3)] hover:shadow-[8px_8px_0px_0px_rgba(16,185,129,0.4)] hover:-translate-y-1 transition-all">
+                        <div className="inline-block px-4 sm:px-5 py-1.5 sm:py-2 bg-gradient-to-r from-emerald-500 to-teal-500 text-white rounded-full text-xs sm:text-sm font-black mb-3 sm:mb-4">
                           {item.date}
                         </div>
                         
-                        <h3 className="text-lg sm:text-xl font-black mb-2 sm:mb-3 text-slate-800">
+                        <h3 className="text-lg sm:text-xl font-black mb-2 sm:mb-3 text-emerald-900">
                           {item.title}
                         </h3>
                         
-                        <p className="text-sm sm:text-base text-slate-600 mb-3 sm:mb-4 leading-relaxed font-medium">
+                        <p className="text-sm sm:text-base text-emerald-800 mb-3 sm:mb-4 leading-relaxed font-medium">
                           {item.description}
                         </p>
                         
@@ -93,7 +97,7 @@ export default function Timeline() {
                           {item.skills.map((skill, idx) => (
                             <span
                               key={idx}
-                              className="px-2 sm:px-3 py-1 sm:py-1.5 bg-blue-50/70 text-slate-700 text-xs font-bold rounded-full shadow-sm border border-blue-200/30"
+                              className="px-2 sm:px-3 py-1 sm:py-1.5 bg-emerald-100 border-2 border-emerald-300 text-emerald-900 text-xs font-bold rounded-lg"
                             >
                               {skill}
                             </span>
@@ -101,8 +105,8 @@ export default function Timeline() {
                         </div>
                         
                         <div className="flex items-start gap-2 text-xs sm:text-sm font-bold">
-                          <span className="text-lg sm:text-xl bg-gradient-to-r from-blue-600 to-blue-500 bg-clip-text text-transparent">→</span>
-                          <span className="text-slate-600">{item.impact}</span>
+                          <span className="text-lg sm:text-xl text-emerald-600">→</span>
+                          <span className="text-emerald-800">{item.impact}</span>
                         </div>
                       </div>
                     </motion.div>

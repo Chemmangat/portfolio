@@ -16,16 +16,13 @@ import {
 
 export default function ProjectsSection() {
   return (
-    <section id="work" className="py-16 md:py-20 relative overflow-hidden">
-      {/* Background gradient accents - multiple layers for immersive feel */}
-      <div className="absolute top-0 right-0 w-96 h-96 bg-gradient-to-bl from-blue-100/60 via-indigo-100/40 to-transparent rounded-full blur-3xl pointer-events-none" />
-      <div className="absolute top-1/4 left-0 w-80 h-80 bg-gradient-to-r from-blue-50/50 to-transparent rounded-full blur-2xl pointer-events-none" />
-      <div className="absolute bottom-1/4 right-1/4 w-64 h-64 bg-gradient-to-tl from-indigo-100/50 to-transparent rounded-full blur-3xl pointer-events-none" />
-      <div className="absolute bottom-0 left-0 w-96 h-96 bg-gradient-to-tr from-blue-100/60 via-purple-100/40 to-transparent rounded-full blur-3xl pointer-events-none" />
+    <section id="work" className="py-16 md:py-20 relative overflow-hidden bg-slate-900">
+      {/* Terminal-like grid */}
+      <div className="absolute inset-0 bg-[linear-gradient(to_right,#1e293b_1px,transparent_1px),linear-gradient(to_bottom,#1e293b_1px,transparent_1px)] bg-[size:2rem_2rem] opacity-50" />
       
-      {/* Blue gradient grid pattern */}
-      <div className="absolute inset-0 bg-[linear-gradient(to_right,#3b82f608_1px,transparent_1px),linear-gradient(to_bottom,#3b82f608_1px,transparent_1px)] bg-[size:4rem_4rem] pointer-events-none" />
-      <div className="absolute inset-0 bg-[linear-gradient(to_right,#60a5fa05_1px,transparent_1px),linear-gradient(to_bottom,#60a5fa05_1px,transparent_1px)] bg-[size:1rem_1rem] pointer-events-none" />
+      {/* Glowing accents */}
+      <div className="absolute top-20 left-20 w-64 h-64 bg-cyan-500/10 rounded-full blur-3xl" />
+      <div className="absolute bottom-20 right-20 w-64 h-64 bg-emerald-500/10 rounded-full blur-3xl" />
       
       <div className="relative max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
         <motion.div
@@ -34,11 +31,14 @@ export default function ProjectsSection() {
           viewport={{ once: true }}
           className="mb-12 md:mb-16"
         >
-          <h2 className="text-3xl sm:text-4xl md:text-5xl font-black mb-3 bg-gradient-to-r from-slate-900 to-slate-700 bg-clip-text text-transparent">
-            Selected Work
+          <div className="inline-block px-3 py-1 bg-cyan-500/20 border border-cyan-500/30 rounded text-cyan-400 text-xs font-mono mb-4">
+            ~/projects
+          </div>
+          <h2 className="text-3xl sm:text-4xl md:text-5xl font-black mb-3 text-white font-mono">
+            Production Projects
           </h2>
-          <p className="text-base text-slate-600 max-w-2xl font-medium">
-            Projects that showcase my capabilities and drive real impact
+          <p className="text-base text-gray-400 max-w-2xl font-mono">
+            Enterprise applications deployed to production environments
           </p>
         </motion.div>
 
@@ -52,103 +52,106 @@ export default function ProjectsSection() {
               transition={{ duration: 0.4 }}
               className="group"
             >
-              {/* Main project card */}
-              <div className="premium-card rounded-xl p-6 md:p-8 hover:-translate-y-1">
-                {/* Header Section */}
-                <div className="flex flex-col lg:flex-row gap-6 mb-6">
-                  {/* Icon Box */}
-                  <div className="flex-shrink-0">
-                    <div className="relative w-24 h-24 bg-gradient-to-br from-blue-500 to-indigo-600 rounded-xl flex items-center justify-center border-2 border-blue-200 shadow-lg group-hover:scale-105 transition-transform duration-300">
-                      <div className="absolute inset-0 bg-gradient-to-br from-blue-500/10 to-indigo-500/10 rounded-xl" />
-                      {project.icon === "RobotOutlined" && <RobotOutlined style={{ fontSize: '48px', color: '#ffffff' }} />}
-                      {project.icon === "CreditCardOutlined" && <CreditCardOutlined style={{ fontSize: '48px', color: '#ffffff' }} />}
-                      {project.icon === "EnvironmentOutlined" && <EnvironmentOutlined style={{ fontSize: '48px', color: '#ffffff' }} />}
-                      {project.icon === "BarChartOutlined" && <BarChartOutlined style={{ fontSize: '48px', color: '#ffffff' }} />}
-                      {project.icon === "ApiOutlined" && <ApiOutlined style={{ fontSize: '48px', color: '#ffffff' }} />}
-                    </div>
+              {/* Terminal-style card */}
+              <div className="bg-slate-800 border border-slate-700 rounded-lg overflow-hidden hover:border-cyan-500/50 transition-all duration-300 shadow-lg hover:shadow-cyan-500/20">
+                {/* Terminal header */}
+                <div className="bg-slate-700/50 px-4 py-2 flex items-center gap-2 border-b border-slate-600">
+                  <div className="flex gap-1.5">
+                    <div className="w-3 h-3 rounded-full bg-red-500/80" />
+                    <div className="w-3 h-3 rounded-full bg-yellow-500/80" />
+                    <div className="w-3 h-3 rounded-full bg-green-500/80" />
                   </div>
-
-                  {/* Title & Role */}
-                  <div className="flex-1">
-                    <div className="inline-flex items-center gap-2 px-3 py-1.5 bg-gradient-to-r from-blue-600 to-blue-500 text-white rounded-full text-xs font-semibold mb-3 shadow-md">
-                      <span>{project.role}</span>
-                    </div>
-                    <h3 className="text-xl sm:text-2xl font-black mb-2 text-slate-900 leading-tight">
-                      {project.title}
-                    </h3>
-                    <p className="text-sm text-slate-600 leading-relaxed font-medium">
-                      {project.description}
-                    </p>
-                  </div>
-
-                  {/* Timeline badge */}
-                  <div className="lg:flex-shrink-0">
-                    <div className="inline-flex items-center gap-2 px-4 py-2 bg-gradient-to-br from-gray-50 to-gray-100 rounded-lg border border-gray-200 shadow-sm">
-                      <ClockCircleOutlined style={{ fontSize: '16px', color: '#2563eb' }} />
-                      <span className="text-sm font-bold text-slate-700">
-                        {project.timeline}
-                      </span>
-                    </div>
-                  </div>
+                  <span className="text-xs text-gray-400 font-mono ml-2">{project.title.toLowerCase().replace(/\s+/g, '-')}.sh</span>
                 </div>
 
-                {/* Content Grid */}
-                <div className="grid md:grid-cols-3 gap-4">
-                  {/* Tech Stack Box */}
-                  <div className="p-4 bg-gradient-to-br from-blue-50/50 to-indigo-50/50 rounded-lg border border-blue-100/50 shadow-sm">
-                    <div className="flex items-center gap-2 mb-3">
-                      <div className="w-7 h-7 bg-blue-600 rounded-lg flex items-center justify-center shadow-sm">
-                        <ToolOutlined style={{ fontSize: '14px', color: '#ffffff' }} />
+                <div className="p-6 md:p-8">
+                  {/* Header Section */}
+                  <div className="flex flex-col lg:flex-row gap-6 mb-6">
+                    {/* Icon Box */}
+                    <div className="flex-shrink-0">
+                      <div className="relative w-20 h-20 bg-gradient-to-br from-cyan-500 to-emerald-500 rounded-lg flex items-center justify-center border border-cyan-400/30">
+                        {project.icon === "RobotOutlined" && <RobotOutlined style={{ fontSize: '40px', color: '#ffffff' }} />}
+                        {project.icon === "CreditCardOutlined" && <CreditCardOutlined style={{ fontSize: '40px', color: '#ffffff' }} />}
+                        {project.icon === "EnvironmentOutlined" && <EnvironmentOutlined style={{ fontSize: '40px', color: '#ffffff' }} />}
+                        {project.icon === "BarChartOutlined" && <BarChartOutlined style={{ fontSize: '40px', color: '#ffffff' }} />}
+                        {project.icon === "ApiOutlined" && <ApiOutlined style={{ fontSize: '40px', color: '#ffffff' }} />}
                       </div>
-                      <h4 className="text-sm font-bold text-slate-900">Tech Stack</h4>
                     </div>
-                    <div className="flex flex-wrap gap-1.5">
-                      {project.techStack.map((tech, idx) => (
-                        <span
-                          key={idx}
-                          className="px-2.5 py-1 bg-white text-slate-700 text-xs font-semibold rounded-md border border-gray-200 shadow-sm hover:shadow-md hover:-translate-y-0.5 transition-all"
-                        >
-                          {tech}
+
+                    {/* Title & Role */}
+                    <div className="flex-1">
+                      <div className="inline-flex items-center gap-2 px-3 py-1 bg-cyan-500/20 border border-cyan-500/30 text-cyan-400 rounded text-xs font-mono mb-3">
+                        <span>{project.role}</span>
+                      </div>
+                      <h3 className="text-xl sm:text-2xl font-bold mb-2 text-white leading-tight font-mono">
+                        {project.title}
+                      </h3>
+                      <p className="text-sm text-gray-400 leading-relaxed">
+                        {project.description}
+                      </p>
+                    </div>
+
+                    {/* Timeline badge */}
+                    <div className="lg:flex-shrink-0">
+                      <div className="inline-flex items-center gap-2 px-4 py-2 bg-slate-700 border border-slate-600 rounded">
+                        <ClockCircleOutlined style={{ fontSize: '16px', color: '#06b6d4' }} />
+                        <span className="text-sm font-mono text-gray-300">
+                          {project.timeline}
                         </span>
-                      ))}
+                      </div>
                     </div>
                   </div>
 
-                  {/* Key Features Box */}
-                  <div className="p-4 bg-gradient-to-br from-purple-50/50 to-pink-50/50 rounded-lg border border-purple-100/50 shadow-sm">
-                    <div className="flex items-center gap-2 mb-3">
-                      <div className="w-7 h-7 bg-purple-600 rounded-lg flex items-center justify-center shadow-sm">
-                        <StarOutlined style={{ fontSize: '14px', color: '#ffffff' }} />
+                  {/* Content Grid */}
+                  <div className="grid md:grid-cols-3 gap-4">
+                    {/* Tech Stack Box */}
+                    <div className="p-4 bg-slate-700/30 border border-slate-600 rounded">
+                      <div className="flex items-center gap-2 mb-3">
+                        <ToolOutlined style={{ fontSize: '14px', color: '#06b6d4' }} />
+                        <h4 className="text-sm font-mono text-cyan-400">Tech Stack</h4>
                       </div>
-                      <h4 className="text-sm font-bold text-slate-900">Key Features</h4>
-                    </div>
-                    <ul className="space-y-2">
-                      {project.features.slice(0, 3).map((feature, idx) => (
-                        <li key={idx} className="flex items-start gap-2 text-xs text-slate-600 font-medium">
-                          <span className="flex-shrink-0 w-4 h-4 bg-gradient-to-br from-purple-600 to-pink-600 text-white rounded flex items-center justify-center shadow-sm">
-                            <StarOutlined style={{ fontSize: '8px', color: '#ffffff' }} />
+                      <div className="flex flex-wrap gap-1.5">
+                        {project.techStack.map((tech, idx) => (
+                          <span
+                            key={idx}
+                            className="px-2 py-0.5 bg-slate-800 text-gray-300 text-xs font-mono rounded border border-slate-600"
+                          >
+                            {tech}
                           </span>
-                          <span className="leading-relaxed">{feature}</span>
-                        </li>
-                      ))}
-                    </ul>
-                  </div>
-
-                  {/* Impact Box */}
-                  <div className="p-4 bg-gradient-to-br from-emerald-50/50 to-teal-50/50 rounded-lg border border-emerald-100/50 shadow-sm">
-                    <div className="flex items-center gap-2 mb-3">
-                      <div className="w-7 h-7 bg-emerald-600 rounded-lg flex items-center justify-center shadow-sm">
-                        <RiseOutlined style={{ fontSize: '14px', color: '#ffffff' }} />
+                        ))}
                       </div>
-                      <h4 className="text-sm font-bold text-slate-900">Impact</h4>
                     </div>
-                    <div className="space-y-2">
-                      {project.impact.map((item, idx) => (
-                        <div key={idx} className="flex items-center gap-2 px-2.5 py-1.5 bg-white rounded-md border border-gray-200 shadow-sm">
-                          <RiseOutlined style={{ fontSize: '12px', color: '#059669' }} />
-                          <span className="text-xs font-semibold text-slate-700">{item}</span>
-                        </div>
-                      ))}
+
+                    {/* Key Features Box */}
+                    <div className="p-4 bg-slate-700/30 border border-slate-600 rounded">
+                      <div className="flex items-center gap-2 mb-3">
+                        <StarOutlined style={{ fontSize: '14px', color: '#10b981' }} />
+                        <h4 className="text-sm font-mono text-emerald-400">Key Features</h4>
+                      </div>
+                      <ul className="space-y-2">
+                        {project.features.slice(0, 3).map((feature, idx) => (
+                          <li key={idx} className="flex items-start gap-2 text-xs text-gray-400">
+                            <span className="text-emerald-400 mt-0.5">▸</span>
+                            <span className="leading-relaxed">{feature}</span>
+                          </li>
+                        ))}
+                      </ul>
+                    </div>
+
+                    {/* Impact Box */}
+                    <div className="p-4 bg-slate-700/30 border border-slate-600 rounded">
+                      <div className="flex items-center gap-2 mb-3">
+                        <RiseOutlined style={{ fontSize: '14px', color: '#f59e0b' }} />
+                        <h4 className="text-sm font-mono text-amber-400">Impact</h4>
+                      </div>
+                      <div className="space-y-2">
+                        {project.impact.map((item, idx) => (
+                          <div key={idx} className="flex items-center gap-2 text-xs text-gray-300">
+                            <span className="text-amber-400">✓</span>
+                            <span>{item}</span>
+                          </div>
+                        ))}
+                      </div>
                     </div>
                   </div>
                 </div>

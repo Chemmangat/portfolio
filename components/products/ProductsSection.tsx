@@ -5,8 +5,18 @@ import { BarChartOutlined, SearchOutlined, LineChartOutlined, RocketOutlined } f
 
 export default function ProductsSection() {
   return (
-    <section className="py-20 md:py-28 relative overflow-hidden bg-white">
-      <div className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
+    <section className="py-20 md:py-28 relative overflow-hidden bg-gradient-to-br from-violet-100 via-fuchsia-100 to-pink-100">
+      {/* Comic-style halftone dots */}
+      <div className="absolute inset-0 opacity-20" style={{
+        backgroundImage: `radial-gradient(circle, #a855f7 1px, transparent 1px)`,
+        backgroundSize: '20px 20px'
+      }} />
+      
+      {/* Pop art style shapes */}
+      <div className="absolute top-10 right-10 w-32 h-32 border-8 border-violet-400 rounded-full opacity-30" />
+      <div className="absolute bottom-10 left-10 w-40 h-40 bg-fuchsia-400/20 rotate-45" />
+      
+      <div className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 relative">
         <motion.div
           initial={{ opacity: 0, y: 20 }}
           whileInView={{ opacity: 1, y: 0 }}
@@ -14,14 +24,14 @@ export default function ProductsSection() {
           transition={{ duration: 0.5 }}
           className="text-center mb-12"
         >
-          <div className="inline-flex items-center gap-2 px-4 py-2 mb-4 bg-gradient-to-r from-purple-600 to-pink-600 text-white rounded-full text-sm font-semibold">
+          <div className="inline-flex items-center gap-2 px-4 py-2 mb-4 bg-white border-3 border-violet-400 text-violet-900 rounded-full text-sm font-black shadow-[4px_4px_0px_0px_rgba(139,92,246,0.3)]">
             <RocketOutlined style={{ fontSize: '14px' }} />
             <span>My Product</span>
           </div>
-          <h2 className="text-3xl sm:text-4xl md:text-5xl font-black text-slate-900 mb-3">
+          <h2 className="text-3xl sm:text-4xl md:text-5xl font-black text-violet-900 mb-3">
             PackFolio
           </h2>
-          <p className="text-lg text-slate-600 max-w-2xl mx-auto">
+          <p className="text-lg text-violet-800 max-w-2xl mx-auto font-bold">
             Free npm package analytics dashboard for developers
           </p>
         </motion.div>
@@ -33,18 +43,18 @@ export default function ProductsSection() {
           transition={{ duration: 0.5, delay: 0.1 }}
           className="max-w-4xl mx-auto"
         >
-          <div className="bg-gradient-to-br from-purple-50 to-pink-50 rounded-2xl border-2 border-purple-200 p-8 md:p-10">
+          <div className="bg-white border-4 border-violet-400 rounded-2xl p-8 md:p-10 shadow-[12px_12px_0px_0px_rgba(139,92,246,0.3)] hover:shadow-[16px_16px_0px_0px_rgba(139,92,246,0.4)] hover:-translate-y-1 hover:-translate-x-1 transition-all">
             {/* Header */}
             <div className="flex items-start gap-6 mb-8">
-              <div className="flex-shrink-0 w-16 h-16 bg-gradient-to-br from-purple-600 to-pink-600 rounded-xl flex items-center justify-center">
+              <div className="flex-shrink-0 w-16 h-16 bg-gradient-to-br from-violet-600 to-fuchsia-600 rounded-xl flex items-center justify-center border-3 border-violet-800 rotate-3">
                 <BarChartOutlined style={{ fontSize: '32px', color: '#ffffff' }} />
               </div>
               <div className="flex-1">
-                <div className="inline-flex items-center gap-2 px-2.5 py-1 bg-green-100 border border-green-300 rounded-full text-xs font-semibold text-green-700 mb-2">
+                <div className="inline-flex items-center gap-2 px-2.5 py-1 bg-green-100 border-2 border-green-400 rounded-full text-xs font-black text-green-800 mb-2">
                   <span className="w-1.5 h-1.5 bg-green-500 rounded-full"></span>
                   Live & Free
                 </div>
-                <p className="text-slate-700 leading-relaxed">
+                <p className="text-violet-900 leading-relaxed font-medium">
                   Track downloads, analyze trends, and compare npm packages. No registration, no API keys, no limits.
                 </p>
               </div>
@@ -52,25 +62,25 @@ export default function ProductsSection() {
 
             {/* Features */}
             <div className="grid sm:grid-cols-3 gap-4 mb-8">
-              <div className="flex items-start gap-3">
-                <SearchOutlined style={{ fontSize: '18px', color: '#9333ea', marginTop: '2px' }} />
+              <div className="flex items-start gap-3 p-3 bg-violet-50 border-2 border-violet-300 rounded-lg">
+                <SearchOutlined style={{ fontSize: '18px', color: '#7c3aed', marginTop: '2px' }} />
                 <div>
-                  <h4 className="font-bold text-slate-900 text-sm mb-1">Smart Search</h4>
-                  <p className="text-xs text-slate-600">Username or package lookup</p>
+                  <h4 className="font-black text-violet-900 text-sm mb-1">Smart Search</h4>
+                  <p className="text-xs text-violet-700">Username or package lookup</p>
                 </div>
               </div>
-              <div className="flex items-start gap-3">
-                <LineChartOutlined style={{ fontSize: '18px', color: '#9333ea', marginTop: '2px' }} />
+              <div className="flex items-start gap-3 p-3 bg-fuchsia-50 border-2 border-fuchsia-300 rounded-lg">
+                <LineChartOutlined style={{ fontSize: '18px', color: '#c026d3', marginTop: '2px' }} />
                 <div>
-                  <h4 className="font-bold text-slate-900 text-sm mb-1">Analytics</h4>
-                  <p className="text-xs text-slate-600">Interactive charts & trends</p>
+                  <h4 className="font-black text-fuchsia-900 text-sm mb-1">Analytics</h4>
+                  <p className="text-xs text-fuchsia-700">Interactive charts & trends</p>
                 </div>
               </div>
-              <div className="flex items-start gap-3">
-                <RocketOutlined style={{ fontSize: '18px', color: '#9333ea', marginTop: '2px' }} />
+              <div className="flex items-start gap-3 p-3 bg-pink-50 border-2 border-pink-300 rounded-lg">
+                <RocketOutlined style={{ fontSize: '18px', color: '#db2777', marginTop: '2px' }} />
                 <div>
-                  <h4 className="font-bold text-slate-900 text-sm mb-1">Zero Friction</h4>
-                  <p className="text-xs text-slate-600">No signup required</p>
+                  <h4 className="font-black text-pink-900 text-sm mb-1">Zero Friction</h4>
+                  <p className="text-xs text-pink-700">No signup required</p>
                 </div>
               </div>
             </div>
@@ -81,7 +91,7 @@ export default function ProductsSection() {
                 {["Next.js 15", "React 19", "TypeScript", "Tailwind CSS", "Recharts"].map((tech) => (
                   <span
                     key={tech}
-                    className="px-3 py-1 bg-white text-slate-700 text-xs font-mono rounded-lg border border-purple-200"
+                    className="px-3 py-1 bg-violet-100 border-2 border-violet-300 text-violet-900 text-xs font-mono font-bold rounded-lg"
                   >
                     {tech}
                   </span>
@@ -95,7 +105,7 @@ export default function ProductsSection() {
                 href="https://packfolio.dev"
                 target="_blank"
                 rel="noopener noreferrer"
-                className="flex-1 px-6 py-3 bg-gradient-to-r from-purple-600 to-pink-600 text-white font-bold rounded-xl text-center transition-opacity hover:opacity-90"
+                className="flex-1 px-6 py-3 bg-gradient-to-r from-violet-600 to-fuchsia-600 text-white font-black rounded-xl text-center border-3 border-violet-800 shadow-[4px_4px_0px_0px_rgba(109,40,217,1)] hover:shadow-[6px_6px_0px_0px_rgba(109,40,217,1)] hover:-translate-y-0.5 hover:-translate-x-0.5 transition-all"
               >
                 Launch Dashboard →
               </a>
@@ -103,7 +113,7 @@ export default function ProductsSection() {
                 href="https://packfolio.dev/about"
                 target="_blank"
                 rel="noopener noreferrer"
-                className="flex-1 px-6 py-3 bg-white text-slate-900 border-2 border-purple-300 font-bold rounded-xl text-center hover:bg-purple-50 transition-colors"
+                className="flex-1 px-6 py-3 bg-white text-violet-900 border-3 border-violet-400 font-black rounded-xl text-center hover:bg-violet-50 transition-colors shadow-[4px_4px_0px_0px_rgba(139,92,246,0.3)]"
               >
                 Learn More
               </a>

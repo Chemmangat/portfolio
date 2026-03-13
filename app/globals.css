@@ -35,6 +35,12 @@
   ::-webkit-scrollbar-thumb:hover {
     background: #2563eb;
   }
+  
+  /* Twinkle animation for stars */
+  @keyframes twinkle {
+    0%, 100% { opacity: 0.2; }
+    50% { opacity: 1; }
+  }
 }
 
 @layer utilities {
@@ -55,5 +61,9 @@
   
   .gradient-text {
     @apply bg-gradient-to-r from-blue-600 to-blue-500 bg-clip-text text-transparent;
+  }
+  
+  .border-3 {
+    border-width: 3px;
   }
 }
