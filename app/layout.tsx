@@ -1,29 +1,28 @@
 import type { Metadata } from "next";
-import { Geist, Geist_Mono } from "next/font/google";
+import { Inter, Playfair_Display } from "next/font/google";
 import "./globals.css";
 
-const geistSans = Geist({
-  variable: "--font-geist-sans",
+const inter = Inter({
+  variable: "--font-inter",
   subsets: ["latin"],
   display: "swap",
-  preload: true,
 });
 
-const geistMono = Geist_Mono({
-  variable: "--font-geist-mono",
+const playfair = Playfair_Display({
+  variable: "--font-playfair",
   subsets: ["latin"],
   display: "swap",
-  preload: true,
 });
 
 export const metadata: Metadata = {
-  title: "Hari Manoj - SDE-1 | Frontend Specialist",
-  description: "Building Enterprise-Grade Web Applications That Scale & Perform Flawlessly. Expert in Next.js, React, Azure, and modern web technologies.",
-  keywords: ["SDE-1", "Software Engineer", "Frontend Developer", "Next.js", "React", "Azure", "TypeScript", "Tailwind CSS"],
+  title: "Hari Manoj — Software Engineer",
+  description:
+    "SDE-1 specializing in production-grade frontend architecture. Next.js, React, Azure.",
+  keywords: ["SDE-1", "Software Engineer", "Frontend", "Next.js", "React", "Azure", "TypeScript"],
   authors: [{ name: "Hari Manoj" }],
   openGraph: {
-    title: "Hari Manoj - SDE-1 | Frontend Specialist",
-    description: "Building Enterprise-Grade Web Applications That Scale & Perform Flawlessly",
+    title: "Hari Manoj — Software Engineer",
+    description: "SDE-1 specializing in production-grade frontend architecture.",
     type: "website",
   },
 };
@@ -41,11 +40,7 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="en">
-      <body
-        className={`${geistSans.variable} ${geistMono.variable} antialiased`}
-      >
-        {children}
-      </body>
+      <body className={`${inter.variable} ${playfair.variable}`}>{children}</body>
     </html>
   );
 }

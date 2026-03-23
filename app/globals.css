@@ -4,66 +4,52 @@
   * {
     @apply antialiased;
   }
-  
+
   html {
     overflow-x: hidden;
-  }
-  
-  body {
-    @apply text-slate-900;
     scroll-behavior: smooth;
-    font-feature-settings: "rlig" 1, "calt" 1;
-    background: linear-gradient(to bottom, #ffffff 0%, #f8fafc 100%);
+  }
+
+  body {
+    background-color: #0f0f10;
+    color: #d4d2cc;
+    font-feature-settings: "rlig" 1, "calt" 1, "kern" 1;
     min-height: 100vh;
     overflow-x: hidden;
   }
-  
-  /* Scrollbar */
+
   ::-webkit-scrollbar {
-    width: 10px;
+    width: 4px;
   }
-  
+
   ::-webkit-scrollbar-track {
-    @apply bg-gray-100;
+    background: #0f0f10;
   }
-  
+
   ::-webkit-scrollbar-thumb {
-    background: linear-gradient(180deg, #3b82f6, #2563eb);
-    border-radius: 5px;
-  }
-  
-  ::-webkit-scrollbar-thumb:hover {
-    background: #2563eb;
-  }
-  
-  /* Twinkle animation for stars */
-  @keyframes twinkle {
-    0%, 100% { opacity: 0.2; }
-    50% { opacity: 1; }
+    background: #c9a96e;
+    border-radius: 2px;
   }
 }
 
 @layer utilities {
-  .gradient-border {
-    position: relative;
-    border: 1px solid transparent;
-    background: linear-gradient(white, white) padding-box,
-                linear-gradient(135deg, #3b82f6, #60a5fa) border-box;
+  /* Color tokens — used consistently everywhere */
+  /* --white:   #f0ede8  (headings, primary text) */
+  /* --light:   #c8c5be  (body text)              */
+  /* --mid:     #8a8880  (secondary text)         */
+  /* --dim:     #5c5a56  (labels, captions)       */
+  /* --border:  #252523  (borders)                */
+  /* --surface: #161617  (card backgrounds)       */
+  /* --gold:    #c9a96e  (accent)                 */
+
+  .text-gold {
+    color: #c9a96e;
   }
-  
-  .glass-effect {
-    @apply bg-white/95 backdrop-blur-sm border border-gray-200/80 shadow-xl;
-  }
-  
-  .premium-card {
-    @apply bg-white border border-gray-200 shadow-lg hover:shadow-2xl transition-all duration-300;
-  }
-  
-  .gradient-text {
-    @apply bg-gradient-to-r from-blue-600 to-blue-500 bg-clip-text text-transparent;
-  }
-  
-  .border-3 {
-    border-width: 3px;
+
+  .gradient-gold {
+    background: linear-gradient(135deg, #c9a96e, #e8d5a3);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
   }
 }

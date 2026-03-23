@@ -1,75 +1,146 @@
 "use client";
 
 import { motion } from "framer-motion";
-import { ArrowDownOutlined, StarOutlined } from "@ant-design/icons";
 import { personalInfo } from "@/lib/data";
 
 export default function HeroSection() {
-  const scrollToWork = () => {
-    const workSection = document.getElementById("work");
-    if (workSection) {
-      workSection.scrollIntoView({ behavior: "smooth", block: "start" });
-    }
-  };
-
   return (
-    <section className="relative h-screen flex items-center justify-center px-4 sm:px-6 lg:px-8 overflow-hidden pt-16 sm:pt-20 bg-[#0a0e27]">
-      {/* Starfield effect */}
-      <div className="absolute inset-0 overflow-hidden pointer-events-none">
-        {[...Array(50)].map((_, i) => (
-          <div
-            key={i}
-            className="absolute w-1 h-1 bg-white rounded-full animate-pulse"
-            style={{
-              top: `${Math.random() * 100}%`,
-              left: `${Math.random() * 100}%`,
-              animationDelay: `${Math.random() * 3}s`,
-              opacity: Math.random() * 0.7 + 0.3,
-            }}
-          />
-        ))}
-      </div>
-      
-      {/* Gradient orbs */}
-      <div className="absolute top-1/4 right-1/4 w-96 h-96 bg-blue-500/20 rounded-full blur-3xl animate-pulse" />
-      <div className="absolute bottom-1/4 left-1/4 w-96 h-96 bg-purple-500/20 rounded-full blur-3xl animate-pulse" style={{ animationDelay: '1s' }} />
-      
-      <div className="relative z-10 w-full max-w-5xl mx-auto text-center">
-        <motion.div initial={{ opacity: 0, y: 30 }} animate={{ opacity: 1, y: 0 }} transition={{ duration: 0.6, ease: "easeOut" }}>
-          <motion.div 
-            initial={{ opacity: 0, scale: 0.9 }} 
-            animate={{ opacity: 1, scale: 1 }} 
-            transition={{ delay: 0.2, duration: 0.4 }} 
-            className="inline-flex items-center gap-2 px-5 py-2 mb-6 bg-white/10 backdrop-blur-md border border-white/20 text-white rounded-full text-sm font-semibold"
+    <section className="relative h-screen flex flex-col px-6 lg:px-16 overflow-hidden bg-[#0f0f10] pt-16">
+
+      {/* Gold radial — top right */}
+      <div className="absolute top-0 right-0 w-[700px] h-[700px] rounded-full pointer-events-none"
+        style={{ background: "radial-gradient(circle at 80% 20%, rgba(201,169,110,0.07) 0%, transparent 60%)" }} />
+
+      {/* Gold radial — bottom left */}
+      <div className="absolute bottom-0 left-0 w-[500px] h-[500px] rounded-full pointer-events-none"
+        style={{ background: "radial-gradient(circle at 20% 80%, rgba(201,169,110,0.05) 0%, transparent 60%)" }} />
+
+      {/* Top gold rule */}
+      <div className="absolute top-16 left-0 right-0 h-px bg-gradient-to-r from-transparent via-[#c9a96e]/20 to-transparent" />
+
+      {/* Main content */}
+      <div className="relative z-10 flex-1 flex items-center">
+        <div className="w-full max-w-6xl mx-auto">
+
+          {/* Eyebrow — with top margin so it breathes */}
+          <motion.div
+            initial={{ opacity: 0, y: 10 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.7, ease: [0.22, 1, 0.36, 1] }}
+            className="flex items-center gap-4 mb-10 mt-8"
           >
-            <StarOutlined style={{ fontSize: '16px' }} />
-            <span className="whitespace-nowrap">2x Global Award Winner • SDE-1</span>
+            <div className="w-6 h-px bg-[#c9a96e]/70 flex-shrink-0" />
+            <span className="text-[10px] tracking-[0.35em] uppercase text-[#c9a96e] font-medium whitespace-nowrap">
+              2× Global Award Winner
+            </span>
+            <div className="w-1 h-1 rounded-full bg-[#c9a96e]/40 flex-shrink-0" />
+            <span className="text-[10px] tracking-[0.35em] uppercase text-[#c9a96e]/70 font-medium">
+              SDE-1 · Terawe Technologies
+            </span>
           </motion.div>
 
-          <h1 className="text-4xl sm:text-5xl md:text-6xl lg:text-7xl font-black tracking-tight mb-4 px-2">
-            <motion.span initial={{ opacity: 0, y: 20 }} animate={{ opacity: 1, y: 0 }} transition={{ delay: 0.3 }} className="block text-white">{personalInfo.name.split(" ")[0]}</motion.span>
-            <motion.span initial={{ opacity: 0, y: 20 }} animate={{ opacity: 1, y: 0 }} transition={{ delay: 0.4 }} className="block bg-gradient-to-r from-blue-400 via-purple-400 to-pink-400 bg-clip-text text-transparent">{personalInfo.name.split(" ")[1]}</motion.span>
-          </h1>
-          
-          <motion.p initial={{ opacity: 0 }} animate={{ opacity: 1 }} transition={{ delay: 0.5 }} className="text-base sm:text-lg md:text-xl font-bold mb-2 px-2 text-blue-200">{personalInfo.title}</motion.p>
-          <motion.p initial={{ opacity: 0 }} animate={{ opacity: 1 }} transition={{ delay: 0.6 }} className="text-sm sm:text-base md:text-lg text-gray-300 max-w-3xl mx-auto mb-8 leading-relaxed px-4 font-medium">{personalInfo.tagline}</motion.p>
+          {/* Name */}
+          <motion.h1
+            initial={{ opacity: 0, y: 20 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.9, delay: 0.1, ease: [0.22, 1, 0.36, 1] }}
+            className="text-[clamp(2.6rem,5.5vw,5rem)] font-extralight tracking-[-0.02em] text-[#f0ede8] leading-[1.05] mb-3"
+          >
+            {personalInfo.name.split(" ")[0]}&nbsp;
+            <span className="font-light italic" style={{ fontFamily: "var(--font-playfair)", color: "#c9a96e" }}>
+              {personalInfo.name.split(" ")[1]}
+            </span>
+          </motion.h1>
 
-          <motion.div initial={{ opacity: 0, y: 20 }} animate={{ opacity: 1, y: 0 }} transition={{ delay: 0.7 }} className="flex flex-col sm:flex-row gap-3 justify-center items-center mb-16 px-4">
-            <button 
-              onClick={scrollToWork} 
-              className="w-full sm:w-auto group relative px-7 py-3 bg-white text-slate-900 hover:bg-gray-100 rounded-xl font-semibold text-base shadow-lg transition-all hover:-translate-y-0.5"
+          {/* Gold separator */}
+          <motion.div
+            initial={{ scaleX: 0, opacity: 0 }}
+            animate={{ scaleX: 1, opacity: 1 }}
+            transition={{ duration: 0.8, delay: 0.35, ease: [0.22, 1, 0.36, 1] }}
+            className="origin-left w-16 h-px bg-[#c9a96e]/50 mb-5"
+          />
+
+          {/* Title */}
+          <motion.p
+            initial={{ opacity: 0, y: 10 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.7, delay: 0.4, ease: [0.22, 1, 0.36, 1] }}
+            className="text-xs tracking-[0.3em] uppercase text-[#a8a5a0] mb-4"
+          >
+            {personalInfo.title}
+          </motion.p>
+
+          {/* Tagline */}
+          <motion.p
+            initial={{ opacity: 0, y: 10 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.7, delay: 0.5, ease: [0.22, 1, 0.36, 1] }}
+            className="text-base text-[#a8a5a0] max-w-lg leading-[1.8] mb-8 font-light"
+          >
+            {personalInfo.tagline}
+          </motion.p>
+
+          {/* CTAs */}
+          <motion.div
+            initial={{ opacity: 0, y: 10 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.7, delay: 0.6, ease: [0.22, 1, 0.36, 1] }}
+            className="flex flex-wrap gap-4 mb-8"
+          >
+            <a
+              href="#work"
+              className="px-8 py-3 bg-[#c9a96e] text-[#0f0f10] text-[11px] font-semibold tracking-[0.2em] uppercase hover:bg-[#dfc080] transition-colors duration-300"
             >
-              <span className="flex items-center justify-center gap-2">View Projects<ArrowDownOutlined style={{ fontSize: '16px' }} className="group-hover:translate-y-1 transition-transform" /></span>
-            </button>
-            <a 
-              href={`mailto:${personalInfo.email}`} 
-              className="w-full sm:w-auto px-7 py-3 bg-white/10 backdrop-blur-md hover:bg-white/20 text-white border-2 border-white/20 hover:border-white/40 rounded-xl font-semibold text-base transition-all hover:-translate-y-0.5"
+              View Work
+            </a>
+            <a
+              href={`mailto:${personalInfo.email}`}
+              className="px-8 py-3 border border-[#353533] text-[#a8a5a0] text-[11px] font-medium tracking-[0.2em] uppercase hover:border-[#c9a96e]/60 hover:text-[#c9a96e] transition-all duration-300"
             >
               Contact
             </a>
           </motion.div>
-        </motion.div>
+
+          {/* Stats row */}
+          <motion.div
+            initial={{ opacity: 0 }}
+            animate={{ opacity: 1 }}
+            transition={{ duration: 0.8, delay: 0.9 }}
+            className="flex flex-wrap items-center gap-6 sm:gap-10 pt-6 border-t border-[#1e1e1c]"
+          >
+            {[
+              { n: "8+", label: "Projects Delivered" },
+              { n: "5+", label: "B2B Platforms" },
+              { n: "2×", label: "Global Awards" },
+            ].map(({ n, label }) => (
+              <div key={label} className="flex items-baseline gap-2">
+                <span className="text-xl font-light text-[#f0ede8]" style={{ fontFamily: "var(--font-playfair)" }}>{n}</span>
+                <span className="text-[10px] tracking-widest uppercase text-[#7a7870]">{label}</span>
+              </div>
+            ))}
+          </motion.div>
+        </div>
       </div>
+
+      {/* Bottom bar */}
+      <motion.div
+        initial={{ opacity: 0 }}
+        animate={{ opacity: 1 }}
+        transition={{ delay: 1.4, duration: 0.8 }}
+        className="relative z-10 flex items-center justify-between pb-6 pt-3 max-w-6xl mx-auto w-full"
+      >
+        <span className="text-[9px] tracking-[0.4em] uppercase text-[#4a4845]">
+          Portfolio · 2026
+        </span>
+        <div className="flex items-center gap-3">
+          <span className="text-[9px] tracking-[0.4em] uppercase text-[#4a4845]">Scroll</span>
+          <motion.div
+            animate={{ scaleY: [1, 0.4, 1] }}
+            transition={{ repeat: Infinity, duration: 2, ease: "easeInOut" }}
+            className="w-px h-8 bg-gradient-to-b from-[#c9a96e]/40 to-transparent origin-top"
+          />
+        </div>
+      </motion.div>
     </section>
   );
 }

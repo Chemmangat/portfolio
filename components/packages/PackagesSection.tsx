@@ -1,196 +1,126 @@
 "use client";
 
 import { motion } from "framer-motion";
-import { RocketOutlined, ThunderboltOutlined, SafetyOutlined } from "@ant-design/icons";
 
 const packages = [
   {
     name: "easy-scroll",
     title: "Easy Scroll",
-    description: "Lightweight scroll animation library leveraging native CSS Scroll Timeline API. Zero dependencies, TypeScript support, and production-ready performance.",
+    description: "Lightweight scroll animation library leveraging native CSS Scroll Timeline API. Zero dependencies, TypeScript support.",
     problem: "Existing libraries added 50KB+ to bundle size for simple scroll effects",
-    solution: "Leveraged native browser APIs to achieve the same results with 0KB overhead",
-    icon: ThunderboltOutlined,
+    solution: "Leveraged native browser APIs — 0KB overhead",
     npmUrl: "https://www.npmjs.com/package/@chemmangat/easy-scroll",
     demoUrl: "https://easyscroll.chemmangathari.in",
-    gradient: "from-amber-500 to-orange-500",
-    features: ["Zero Dependencies", "Native CSS API", "TypeScript Support"],
-    downloads: "450"
+    features: ["Zero Dependencies", "Native CSS API", "TypeScript"],
+    downloads: "450",
   },
   {
     name: "optimistic-update",
     title: "Optimistic Update",
-    description: "React hook implementing optimistic UI updates with automatic rollback. Provides instant user feedback while maintaining data consistency.",
-    problem: "Every form submission felt sluggish, users complained about the lag",
-    solution: "Built optimistic updates pattern into a reusable React hook",
-    icon: RocketOutlined,
+    description: "React hook implementing optimistic UI updates with automatic rollback. Instant user feedback with data consistency.",
+    problem: "Every form submission felt sluggish — users waited for server round-trips",
+    solution: "Optimistic updates pattern in a reusable React hook with rollback",
     npmUrl: "https://www.npmjs.com/package/@chemmangat/optimistic-update",
     demoUrl: "https://optimisticupdate.chemmangathari.in",
-    gradient: "from-blue-500 to-indigo-500",
     features: ["Instant Feedback", "Auto Rollback", "React Hooks"],
-    downloads: "150"
+    downloads: "150",
   },
   {
     name: "msal-next",
     title: "MSAL Next",
-    description: "Production-ready MSAL authentication wrapper for Next.js applications. Simplifies Microsoft identity integration with type-safe APIs and SSR support.",
-    problem: "MSAL docs were confusing, Next.js integration was a nightmare",
-    solution: "Created a clean abstraction following Next.js best practices",
-    icon: SafetyOutlined,
+    description: "Production-ready MSAL authentication wrapper for Next.js. Simplifies Microsoft identity integration with SSR support.",
+    problem: "MSAL + Next.js integration was undocumented and fragile in SSR contexts",
+    solution: "Clean abstraction following Next.js App Router best practices",
     npmUrl: "https://www.npmjs.com/package/@chemmangat/msal-next",
     demoUrl: "https://msal.chemmangathari.in",
-    gradient: "from-emerald-500 to-teal-500",
-    features: ["Next.js Optimized", "Type Safe", "Easy Setup"],
-    downloads: "2,450"
-  }
+    features: ["Next.js Optimized", "Type Safe", "SSR Support"],
+    downloads: "2,450",
+  },
 ];
 
 export default function PackagesSection() {
   return (
-    <section className="py-20 md:py-28 relative overflow-hidden bg-gradient-to-b from-white via-slate-50/50 to-white">
-      {/* Background decorations */}
-      <div className="absolute inset-0 overflow-hidden pointer-events-none">
-        <div className="absolute top-40 -right-40 w-96 h-96 bg-blue-100/30 rounded-full blur-3xl" />
-        <div className="absolute bottom-40 -left-40 w-96 h-96 bg-indigo-100/30 rounded-full blur-3xl" />
-      </div>
-
-      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative">
+    <section className="py-24 md:py-36 bg-[#0f0f10] border-t border-[#1e1e1c]">
+      <div className="max-w-6xl mx-auto px-6 lg:px-16">
         <motion.div
-          initial={{ opacity: 0, y: 20 }}
+          initial={{ opacity: 0, y: 16 }}
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true }}
           transition={{ duration: 0.6 }}
-          className="text-center mb-16"
+          className="mb-16 flex flex-col md:flex-row md:items-end md:justify-between gap-4"
         >
-          <div className="inline-flex items-center gap-2 px-4 py-2 mb-4 bg-gradient-to-r from-blue-600 to-blue-500 text-white rounded-full text-sm font-semibold shadow-lg shadow-blue-500/30">
-            <RocketOutlined style={{ fontSize: '16px' }} />
-            <span>3,050+ Weekly Downloads</span>
+          <div>
+            <span className="text-[10px] tracking-[0.4em] uppercase text-[#c9a96e]">Open Source</span>
+            <h2 className="text-4xl md:text-5xl font-light text-[#f0ede8] mt-4" style={{ fontFamily: "var(--font-playfair)" }}>
+              npm Packages
+            </h2>
+            <p className="text-sm text-[#a8a5a0] mt-3 font-light">Engineering solutions to real problems — published and maintained</p>
           </div>
-          <h2 className="text-3xl sm:text-4xl md:text-5xl font-black text-slate-900 mb-4">
-            Open Source Packages
-          </h2>
-          <p className="text-lg text-slate-600 max-w-2xl mx-auto">
-            Production-tested npm packages solving real-world development challenges.
-          </p>
+          <div className="text-xs text-[#8a8880] font-mono tracking-wider">3,050+ weekly downloads</div>
         </motion.div>
 
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 lg:gap-8">
-          {packages.map((pkg, index) => {
-            const Icon = pkg.icon;
-            return (
-              <motion.div
-                key={pkg.name}
-                initial={{ opacity: 0, y: 30 }}
-                whileInView={{ opacity: 1, y: 0 }}
-                viewport={{ once: true }}
-                transition={{ duration: 0.5, delay: index * 0.1 }}
-                className="group relative perspective-1000"
-                style={{ perspective: '1000px' }}
-              >
-                {/* 3D Card Container */}
-                <div 
-                  className="relative h-full preserve-3d transition-transform duration-200 ease-out group-hover:[transform:rotateX(2deg)_rotateY(-2deg)_translateZ(20px)]"
-                  style={{ transformStyle: 'preserve-3d' }}
-                >
-                  {/* Shadow layer for 3D depth */}
-                  <div className="absolute inset-0 bg-slate-900/20 rounded-xl blur-xl translate-y-4 group-hover:translate-y-6 transition-transform duration-200 pointer-events-none" />
-                  
-                  {/* Main card */}
-                  <div className="relative h-full bg-white rounded-xl border-2 border-gray-300 group-hover:border-gray-900 shadow-lg group-hover:shadow-2xl transition-all duration-150 overflow-hidden flex flex-col z-10">
-                    {/* Gradient header with 3D effect */}
-                    <div className={`h-1 bg-gradient-to-r ${pkg.gradient} group-hover:h-2 transition-all duration-150`} />
-                    
-                    {/* Shine effect on hover */}
-                    <div className="absolute inset-0 opacity-0 group-hover:opacity-100 transition-opacity duration-300 pointer-events-none bg-gradient-to-br from-white/40 via-transparent to-transparent z-20" />
-                    
-                    <div className="relative p-6 sm:p-8 flex flex-col flex-1 z-10">
-                      {/* Icon with 3D pop */}
-                      <div className="mb-6">
-                        <div className={`inline-flex p-3 rounded-lg bg-gradient-to-br ${pkg.gradient} shadow-lg group-hover:shadow-xl group-hover:translate-z-10 transition-all duration-150`}>
-                          <Icon style={{ fontSize: '24px', color: '#ffffff' }} />
-                        </div>
-                      </div>
+        <div className="grid md:grid-cols-3 divide-x divide-y md:divide-y-0 divide-[#1e1e1c] border border-[#1e1e1c]">
+          {packages.map((pkg, i) => (
+            <motion.div
+              key={pkg.name}
+              initial={{ opacity: 0, y: 20 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              viewport={{ once: true }}
+              transition={{ duration: 0.5, delay: i * 0.1 }}
+              className="p-8 flex flex-col group hover:bg-[#141413] transition-colors duration-400"
+            >
+              <div className="flex items-center justify-between mb-6">
+                <span className="text-[10px] font-mono text-[#6b6966]">{pkg.name}</span>
+                <span className="text-[10px] font-mono text-[#c9a96e]">↓ {pkg.downloads}/wk</span>
+              </div>
 
-                      {/* Title and Downloads */}
-                      <div className="mb-3">
-                        <h3 className="text-xl font-bold text-slate-900 mb-2 font-mono group-hover:translate-x-1 transition-transform duration-150">
-                          {pkg.title}
-                        </h3>
-                        {pkg.downloads && (
-                          <div className="inline-flex items-center gap-2 px-2.5 py-1 bg-green-50 border border-green-300 rounded text-xs font-mono group-hover:scale-105 transition-transform duration-150">
-                            <span className="text-green-600">↓</span>
-                            <span className="text-green-700 font-semibold">
-                              {pkg.downloads}/week
-                            </span>
-                          </div>
-                        )}
-                      </div>
+              <h3 className="text-lg font-light text-[#f0ede8] mb-3" style={{ fontFamily: "var(--font-playfair)" }}>{pkg.title}</h3>
 
-                      {/* Description */}
-                      <p className="text-slate-600 text-sm mb-6 leading-relaxed flex-1">
-                        {pkg.description}
-                      </p>
+              <p className="text-sm text-[#a8a5a0] leading-relaxed mb-6 flex-1 font-light">{pkg.description}</p>
 
-                      {/* Features with depth */}
-                      <div className="flex flex-wrap gap-2 mb-6">
-                        {pkg.features.map((feature) => (
-                          <span
-                            key={feature}
-                            className="px-2.5 py-1 bg-slate-100 group-hover:bg-slate-900 group-hover:text-white text-slate-700 text-xs font-mono rounded transition-all duration-150 group-hover:translate-y-[-2px] group-hover:shadow-md"
-                          >
-                            {feature}
-                          </span>
-                        ))}
-                      </div>
-
-                      {/* Links with 3D press effect */}
-                      <div className="flex gap-3 mt-auto font-mono text-xs relative z-30">
-                        <a
-                          href={pkg.npmUrl}
-                          target="_blank"
-                          rel="noopener noreferrer"
-                          className="flex-1 px-4 py-2 bg-slate-900 hover:bg-slate-800 text-white font-semibold rounded transition-all duration-150 text-center hover:translate-y-[-2px] hover:shadow-lg active:translate-y-0 cursor-pointer"
-                        >
-                          npm install
-                        </a>
-                        <a
-                          href={pkg.demoUrl}
-                          target="_blank"
-                          rel="noopener noreferrer"
-                          className={`flex-1 px-4 py-2 bg-gradient-to-r ${pkg.gradient} hover:opacity-90 text-white font-semibold rounded transition-all duration-150 text-center hover:translate-y-[-2px] hover:shadow-lg active:translate-y-0 cursor-pointer`}
-                        >
-                          demo →
-                        </a>
-                      </div>
-                    </div>
-
-                    {/* Code grid overlay */}
-                    <div className="absolute inset-0 opacity-0 group-hover:opacity-100 transition-opacity duration-150 pointer-events-none bg-[linear-gradient(to_right,#00000005_1px,transparent_1px),linear-gradient(to_bottom,#00000005_1px,transparent_1px)] bg-[size:1rem_1rem]" />
-                  </div>
+              <div className="space-y-3 mb-6 border-t border-[#1e1e1c] pt-5">
+                <div>
+                  <div className="text-[9px] tracking-[0.25em] uppercase text-[#7a7870] mb-1">Problem</div>
+                  <div className="text-xs text-[#8a8880] leading-relaxed">{pkg.problem}</div>
                 </div>
-              </motion.div>
-            );
-          })}
+                <div>
+                  <div className="text-[9px] tracking-[0.25em] uppercase text-[#c9a96e]/60 mb-1">Solution</div>
+                  <div className="text-xs text-[#c8c5be] leading-relaxed">{pkg.solution}</div>
+                </div>
+              </div>
+
+              <div className="flex flex-wrap gap-2 mb-8">
+                {pkg.features.map((f) => (
+                  <span key={f} className="text-[10px] font-mono text-[#8a8880] border border-[#252523] px-2 py-1">
+                    {f}
+                  </span>
+                ))}
+              </div>
+
+              <div className="flex gap-3 mt-auto">
+                <a href={pkg.npmUrl} target="_blank" rel="noopener noreferrer"
+                  className="flex-1 py-2.5 text-[10px] font-mono tracking-wider text-center border border-[#252523] text-[#a8a5a0] hover:border-[#c9a96e]/50 hover:text-[#c9a96e] transition-all duration-300">
+                  npm install
+                </a>
+                <a href={pkg.demoUrl} target="_blank" rel="noopener noreferrer"
+                  className="flex-1 py-2.5 text-[10px] font-mono tracking-wider text-center bg-[#161615] text-[#a8a5a0] hover:bg-[#c9a96e]/10 hover:text-[#c9a96e] transition-all duration-300">
+                  demo →
+                </a>
+              </div>
+            </motion.div>
+          ))}
         </div>
 
-        {/* Bottom CTA */}
         <motion.div
-          initial={{ opacity: 0, y: 20 }}
-          whileInView={{ opacity: 1, y: 0 }}
+          initial={{ opacity: 0 }}
+          whileInView={{ opacity: 1 }}
           viewport={{ once: true }}
           transition={{ duration: 0.6, delay: 0.3 }}
-          className="text-center mt-12"
+          className="mt-8 text-center"
         >
-          <p className="text-slate-600 mb-4">
-            Open source packages with comprehensive documentation and TypeScript support
-          </p>
-          <a
-            href="https://www.npmjs.com/~chemmangat"
-            target="_blank"
-            rel="noopener noreferrer"
-            className="inline-flex items-center gap-2 px-6 py-3 bg-white hover:bg-gray-50 text-slate-900 border-2 border-gray-200 hover:border-blue-300 rounded-xl font-semibold text-sm shadow-md hover:shadow-lg transition-all hover:-translate-y-0.5"
-          >
-            View npm Profile
+          <a href="https://www.npmjs.com/~chemmangat" target="_blank" rel="noopener noreferrer"
+            className="text-[10px] tracking-[0.3em] uppercase text-[#6b6966] hover:text-[#c9a96e] transition-colors duration-300">
+            View npm Profile →
           </a>
         </motion.div>
       </div>
