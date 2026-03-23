@@ -38,7 +38,7 @@ export default function SkillsSection() {
           <p className="text-sm text-[#a8a5a0] mt-3 font-light">Production-tested technologies across frontend, cloud, and backend</p>
         </motion.div>
 
-        <div className="grid md:grid-cols-2 divide-x divide-y md:divide-y-0 divide-[#1e1e1c] border border-[#1e1e1c]">
+        <div className="grid md:grid-cols-2 divide-y divide-[#1e1e1c] border border-[#1e1e1c]">
           {categories.map((cat, catIdx) => (
             <motion.div
               key={catIdx}
@@ -46,7 +46,7 @@ export default function SkillsSection() {
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true }}
               transition={{ duration: 0.6, delay: catIdx * 0.1 }}
-              className="p-10"
+              className="p-7 md:p-10 odd:md:border-r odd:md:border-[#1e1e1c]"
             >
               <div className="text-[10px] tracking-[0.3em] uppercase text-[#c9a96e]/70 mb-8">
                 {cat.title}
@@ -83,7 +83,7 @@ export default function SkillsSection() {
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true }}
           transition={{ duration: 0.6, delay: 0.3 }}
-          className="border border-t-0 border-[#1e1e1c] p-10"
+          className="border border-t-0 border-[#1e1e1c] p-7 md:p-10"
         >
           <div className="text-[10px] tracking-[0.3em] uppercase text-[#c9a96e]/70 mb-8">
             Leadership & Soft Skills

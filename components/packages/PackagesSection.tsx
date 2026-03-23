@@ -56,10 +56,16 @@ export default function PackagesSection() {
             </h2>
             <p className="text-sm text-[#a8a5a0] mt-3 font-light">Engineering solutions to real problems — published and maintained</p>
           </div>
-          <div className="text-xs text-[#8a8880] font-mono tracking-wider">3,050+ weekly downloads</div>
+          <div className="flex flex-col items-start md:items-end gap-1">
+            <div className="flex items-baseline gap-2">
+              <span className="text-3xl font-light text-[#f0ede8]" style={{ fontFamily: "var(--font-playfair)" }}>4k+</span>
+              <span className="text-[10px] tracking-[0.3em] uppercase text-[#c9a96e]">total downloads</span>
+            </div>
+            <span className="text-[10px] font-mono text-[#6b6966]">across 3 published packages</span>
+          </div>
         </motion.div>
 
-        <div className="grid md:grid-cols-3 divide-x divide-y md:divide-y-0 divide-[#1e1e1c] border border-[#1e1e1c]">
+        <div className="grid md:grid-cols-3 divide-y divide-[#1e1e1c] border border-[#1e1e1c]">
           {packages.map((pkg, i) => (
             <motion.div
               key={pkg.name}
@@ -67,7 +73,7 @@ export default function PackagesSection() {
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true }}
               transition={{ duration: 0.5, delay: i * 0.1 }}
-              className="p-8 flex flex-col group hover:bg-[#141413] transition-colors duration-400"
+              className="p-7 md:p-8 flex flex-col group hover:bg-[#141413] transition-colors duration-400 md:[&:not(:last-child)]:border-r md:border-[#1e1e1c]"
             >
               <div className="flex items-center justify-between mb-6">
                 <span className="text-[10px] font-mono text-[#6b6966]">{pkg.name}</span>
@@ -120,7 +126,7 @@ export default function PackagesSection() {
         >
           <a href="https://www.npmjs.com/~chemmangat" target="_blank" rel="noopener noreferrer"
             className="text-[10px] tracking-[0.3em] uppercase text-[#6b6966] hover:text-[#c9a96e] transition-colors duration-300">
-            View npm Profile →
+            4,000+ downloads · View npm Profile →
           </a>
         </motion.div>
       </div>

@@ -22,21 +22,25 @@ export default function HeroSection() {
       <div className="relative z-10 flex-1 flex items-center">
         <div className="w-full max-w-6xl mx-auto">
 
-          {/* Eyebrow — with top margin so it breathes */}
+          {/* Eyebrow — stacked on mobile, inline on larger screens */}
           <motion.div
             initial={{ opacity: 0, y: 10 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.7, ease: [0.22, 1, 0.36, 1] }}
-            className="flex items-center gap-4 mb-10 mt-8"
+            className="flex flex-col sm:flex-row sm:items-center gap-2 sm:gap-4 mb-10 mt-8"
           >
-            <div className="w-6 h-px bg-[#c9a96e]/70 flex-shrink-0" />
-            <span className="text-[10px] tracking-[0.35em] uppercase text-[#c9a96e] font-medium whitespace-nowrap">
-              2× Global Award Winner
-            </span>
-            <div className="w-1 h-1 rounded-full bg-[#c9a96e]/40 flex-shrink-0" />
-            <span className="text-[10px] tracking-[0.35em] uppercase text-[#c9a96e]/70 font-medium">
-              SDE-1 · Terawe Technologies
-            </span>
+            <div className="flex items-center gap-3">
+              <div className="w-6 h-px bg-[#c9a96e]/70 flex-shrink-0" />
+              <span className="text-[10px] tracking-[0.35em] uppercase text-[#c9a96e] font-medium">
+                2× Global Award Winner
+              </span>
+            </div>
+            <div className="flex items-center gap-3 sm:gap-4">
+              <div className="hidden sm:block w-1 h-1 rounded-full bg-[#c9a96e]/40 flex-shrink-0" />
+              <span className="text-[10px] tracking-[0.35em] uppercase text-[#c9a96e]/70 font-medium pl-9 sm:pl-0">
+                SDE-1 · Terawe Technologies
+              </span>
+            </div>
           </motion.div>
 
           {/* Name */}

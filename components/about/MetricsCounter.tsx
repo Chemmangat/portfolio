@@ -31,7 +31,7 @@ export default function MetricsCounter() {
   return (
     <section className="bg-[#0f0f10] border-t border-[#1e1e1c]">
       <div className="max-w-6xl mx-auto px-6 lg:px-16">
-        <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-6 divide-x divide-y md:divide-y-0 divide-[#1e1e1c]">
+        <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-6 divide-x divide-y divide-[#1e1e1c]">
           {metrics.map((metric, i) => (
             <motion.div
               key={i}
@@ -39,7 +39,7 @@ export default function MetricsCounter() {
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true }}
               transition={{ duration: 0.6, delay: i * 0.08 }}
-              className="flex flex-col gap-3 px-8 py-12 group"
+              className="flex flex-col gap-3 px-5 md:px-8 py-10 md:py-12 group"
             >
               <div
                 className="text-4xl md:text-5xl font-light text-[#f0ede8] tabular-nums leading-none"
