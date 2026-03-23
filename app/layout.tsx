@@ -14,16 +14,58 @@ const playfair = Playfair_Display({
   display: "swap",
 });
 
+const siteUrl = "https://chemmangathari.in"; // update to your actual domain
+
 export const metadata: Metadata = {
-  title: "Hari Manoj — Software Engineer",
+  metadataBase: new URL(siteUrl),
+  title: {
+    default: "Hari Manoj — Software Engineer | SDE-1 at Terawe Technologies",
+    template: "%s | Hari Manoj",
+  },
   description:
-    "SDE-1 specializing in production-grade frontend architecture. Next.js, React, Azure.",
-  keywords: ["SDE-1", "Software Engineer", "Frontend", "Next.js", "React", "Azure", "TypeScript"],
-  authors: [{ name: "Hari Manoj" }],
+    "Hari Manoj (Chemmangat Hari) — Software Development Engineer at Terawe Technologies. Full Stack Engineer specializing in Next.js, React, TypeScript, and Azure. 2× Global Award Winner.",
+  keywords: [
+    "Hari Manoj",
+    "Chemmangat Hari",
+    "chemmangathari",
+    "SDE-1",
+    "Software Engineer",
+    "Terawe Technologies",
+    "Frontend Developer",
+    "Full Stack Engineer",
+    "Next.js Developer",
+    "React Developer",
+    "TypeScript",
+    "Azure",
+    "npm packages",
+    "Portfolio",
+  ],
+  authors: [{ name: "Hari Manoj", url: siteUrl }],
+  creator: "Hari Manoj",
+  publisher: "Hari Manoj",
+  robots: {
+    index: true,
+    follow: true,
+    googleBot: { index: true, follow: true },
+  },
+  alternates: {
+    canonical: siteUrl,
+  },
   openGraph: {
-    title: "Hari Manoj — Software Engineer",
-    description: "SDE-1 specializing in production-grade frontend architecture.",
+    title: "Hari Manoj — Software Engineer | SDE-1 at Terawe Technologies",
+    description:
+      "Full Stack Engineer specializing in Next.js, React, TypeScript, and Azure. 2× Global Award Winner. 4k+ npm downloads.",
+    url: siteUrl,
+    siteName: "Hari Manoj Portfolio",
     type: "website",
+    locale: "en_US",
+  },
+  twitter: {
+    card: "summary_large_image",
+    title: "Hari Manoj — Software Engineer",
+    description:
+      "Full Stack Engineer specializing in Next.js, React, TypeScript, and Azure. 2× Global Award Winner.",
+    creator: "@chemmangathari",
   },
 };
 
@@ -33,6 +75,27 @@ export const viewport = {
   maximumScale: 5,
 };
 
+// JSON-LD structured data — tells Google exactly who this page is about
+const jsonLd = {
+  "@context": "https://schema.org",
+  "@type": "Person",
+  name: "Hari Manoj",
+  alternateName: "Chemmangat Hari",
+  url: siteUrl,
+  jobTitle: "Software Development Engineer",
+  worksFor: {
+    "@type": "Organization",
+    name: "Terawe Technologies",
+  },
+  sameAs: [
+    "https://github.com/Chemmangat",
+    "https://www.linkedin.com/in/chemmangat-hari/",
+    "https://www.npmjs.com/~chemmangat",
+  ],
+  knowsAbout: ["Next.js", "React", "TypeScript", "Azure", "Node.js", "Full Stack Development"],
+  award: ["Global Team Player Award 2024", "Global Team Player Award 2025"],
+};
+
 export default function RootLayout({
   children,
 }: Readonly<{
@@ -40,6 +103,12 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="en">
+      <head>
+        <script
+          type="application/ld+json"
+          dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd) }}
+        />
+      </head>
       <body className={`${inter.variable} ${playfair.variable}`}>{children}</body>
     </html>
   );
