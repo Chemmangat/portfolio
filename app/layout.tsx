@@ -43,6 +43,9 @@ export const metadata: Metadata = {
   authors: [{ name: "Hari Manoj", url: siteUrl }],
   creator: "Hari Manoj",
   publisher: "Hari Manoj",
+  verification: {
+    google: "hxJTImZHXst6sVO7GgC8INmzlVlVqKi9T0G6VnLUAxs",
+  },
   robots: {
     index: true,
     follow: true,
